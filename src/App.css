@@ -1,38 +1,223 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: #fff;
+  color: #222;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font: 15px/1.6 "-apple-system", BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen-Sans, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
+      "Helvetica Neue", sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+  word-wrap: break-word;
+  max-width: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+}
+#main {
+  margin-top: 50px;
+}
+#content,
+.header-wrapper,
+#footer-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.content-header {
+  height: 60vh;
+}
+.content-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 18px 0 12px 0;
+}
+input[type="date"] {
+  width: 100%;
+  border: 1px solid lightgray;
+}
+button {
+  border: unset;
 }
 
-.App-link {
-  color: #61dafb;
+/*navbar*/
+.header {
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  transition: top 0.3s;
+  /*background-color: #fff4eb;*/
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.header-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.header-main {
+  display: flex;
+  width: 100%;
+}
+.header-logo {
+  height: min-content;
+  margin: 0 0 0 15px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #d7a449;
+}
+.header-links {
+  display: flex;
+  margin-left: auto;
+}
+.header-link {
+  height: min-content;
+  margin: auto 0 auto 20px;
+  font-weight: 600;
+}
+.header-icon {
+  display: none;
+  margin: 0 15px 0 auto;
+  font-size: 28px;
+}
+/*navbar - mobile version*/
+@media screen and (max-width: 600px) {
+  .header-links {
+      display: none;
+  }
+  .header-links .header-responsive {
+      margin-top: 10px;
+  }
+  .header-link {
+      margin: 0 !important;
+      padding: 16px;
+      background-color: #e4e4e4;
+  }
+  .header-icon {
+      display: block;
+  }
+}
+@media screen and (max-width: 600px) {
+  .header-responsive {
+      display: block !important;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/*footer*/
+footer {
+  color: #000;
+  background-color: #fff;
+}
+#footer-wrapper {
+  padding: 20px;
+}
+.footer-logo {
+  color: #d7a449;
+  font-size: 24px;
+  font-weight: 700;
+}
+#footer-links {
+  display: flex;
+}
+#footer-links .links-block:not(:first-child) {
+  margin-left: 40px;
+}
+#footer-links .links-block h4 {
+  font-size: 18px;
+  font-weight: 500;
+}
+#footer-links .links-block hr {
+  border: none;
+  border-bottom: 0.07692308em solid #e4e4e4;
+  color: #e4e4e4;
+  margin: 0 0 14px 0;
+}
+
+/*search form*/
+.search-form {
+  display: flex;
+  margin-bottom: 1px;
+  background-color: #f9f9f9;
+}
+.search-form__option {
+  display: flex;
+  width: 40%;
+  min-width: 150px;
+  padding: 0 24px;
+}
+@media screen and (max-width: 600px) {
+}
+.search-form__option__wrap {
+  width: 100%;
+  margin: auto;
+}
+.search-form__option__title {
+  font-weight: 500;
+}
+.search-form__advance {
+  width: 0%;
+}
+.search-form__searchBtn {
+  width: 20%;
+  min-width: 100px;
+  padding: 29px 0;
+  text-align: center;
+  color: #fff;
+  background-color: #e69628;
+}
+.search-form__searchBtn__wrap i {
+  margin-right: 10px;
+}
+.search-form__searchBtn__wrap span {
+  font-size: 18px;
+}
+.search-form__border {
+  border-right-style: solid;
+  border-right-color: #dfdfdf;
+  border-right-width: 1px;
+}
+.searchbox__checkin,
+.searchbox__checkout {
+  display: flex;
+}
+.searchbox__checkin-text,
+.searchbox__checkout-text {
+  margin-left: 10px;
+}
+/*search form - mobile version*/
+@media screen and (max-width: 750px) {
+  .search-form {
+      display: block !important;
   }
-  to {
-    transform: rotate(360deg);
+  .search-form__option {
+      width: auto !important;
+      padding: 15px;
   }
+  .search-form__searchBtn {
+      width: 100% !important;
+  }
+}
+
+/*coronavirus*/
+.coronavirus-card {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-image: linear-gradient(to right, #f9f9f9 50%, #fff);
 }
