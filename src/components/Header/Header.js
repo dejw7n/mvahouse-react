@@ -5,7 +5,7 @@ function Header() {
         <header className="header">
             <div className="header-wrapper">
                 <div className="header-main">
-                    <div className="header-logo">git test</div>
+                    <div className="header-logo">MVAhouse</div>
                     <div className="header-icon"><a><i className="fas fa-bars"></i></a></div>
                 </div>
                 <div className="header-links">
