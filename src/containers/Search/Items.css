@@ -1,0 +1,107 @@
+/*Mobile version*/
+@media screen and (max-width: 750px) {
+    .item {
+        height: unset !important;
+    }
+    .item-bottom {
+        display: block !important;
+    }
+    .item-img {
+        width: unset !important;
+        height: unset !important;
+    }
+    .item-img img {
+        width: 150px !important;
+    }
+    .item-content {
+        padding: 10px 5px !important;
+    }
+}
+/**/
+
+.item {
+    display: flex;
+    height: 200px;
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+}
+.item--best-choice {
+    background-image: linear-gradient(140deg, #f9f9f9 80%, gold);
+}
+.item-img {
+    width: 200px;
+    height: 100%;
+}
+.item-img img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.item-content {
+    padding: 10px 20px;
+    flex-grow: 2;
+}
+.item-top {
+    display: flex;
+    min-height: 50px;
+}
+.item-top__choice {
+    margin: auto 0 auto auto;
+}
+.item-top__choice-container {
+    padding: 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    background-color: gold;
+}
+
+.item-title {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.item-bottom {
+    display: flex;
+}
+
+.bottom-left {
+    padding-top: 10px;
+}
+
+.bottom-right {
+    min-width: 185px;
+    margin-right: 0;
+    margin-left: auto;
+    text-align: right;
+}
+
+.bottom-right-wrapper {
+    line-height: 25px;
+}
+.bottom-right-wrapper .default {
+    font-size: 14px;
+}
+.bottom-right-wrapper .price {
+    font-size: 24px;
+    font-weight: 600;
+}
+.bottom-right-wrapper .taxes-and-fees {
+    font-size: 12px;
+}
+
+.bottom-right-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 35px;
+    border: none;
+    background-color: #e69628;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+}
+.bottom-right-button:hover {
+    background-color: #b35600;
+}

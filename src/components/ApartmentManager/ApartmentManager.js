@@ -1,29 +1,22 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import Axios from 'axios';
 
-export function getApartment() {
-    $stmt = $this -> connect() -> query("SELECT * FROM apartments WHERE link = '$link'");
+export function GetApartment(link) {
+    const [apartment, setApartment] = useState([]);
+    useEffect(() => {
+        Axios.get(`http://localhost:3001/api/getApartment/${link}`).then((response) => {
+            setApartment(response.data);
+        });
+    }, []);
+    return apartment;
+}
 
-    $arr = array();
-    $jsonArr = "{}";
-    $jsonArr = json_encode($jsonArr);
-
-    $row = $stmt -> fetch();
-
-    if ($stmt -> rowCount()) {
-        $arr += array
-            (
-                "id" => $row['id'],
-                "link" => $row['link'],
-                "title" => $row['title'],
-                "configuration" => $row['configuration'],
-                "price" => $row['price'],
-                "discount" => $row['discount'],
-                "createdAt" => $row['createdAt'],
-                "updatedAt" => $row['updatedAt']
-            );
-        $jsonArr = json_encode($arr);
-    } else {
-        return null;
-    }
-    return $jsonArr;
+export function GetAllApartments() {
+    const [apartmentList, setApartmentList] = useState([]);
+    useEffect(() => {
+        Axios.get(`http://localhost:3001/api/getAllApartments/`).then((response) => {
+            setApartmentList(response.data);
+        });
+    }, []);
+    return apartmentList;
 }

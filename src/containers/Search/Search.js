@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Search.css';
+import './Items.css';
 import bgImg from '../../assets/img/header-min.webp';
 import SearchPanel from '../../components/SearchPanel/SearchPanel';
-import {getAllApartments} from '../../components/ApartmentManager/ApartmentManager';
+import { GetAllApartments } from '../../components/ApartmentManager/ApartmentManager';
+
+const tryRequire = (path) => {
+    try {
+        return require(`${path}`);
+    } catch (err) {
+        return null;
+    }
+};
+
 
 function Search() {
+    const runCallback = (cb) => {
+        return cb();
+    };
     return (
         <main id="main-content">
             <section className="section-home-header content-header">
@@ -17,13 +30,21 @@ function Search() {
                     runCallback(() => {
                         const row = [];
 
-                        let items = getAllApartments();
-                        items = json_decode(items);
-                        foreach(items as item) {
-                            itemConfig = item -> configuration;
-                            itemConfig = json_decode(itemConfig);
-                            itemClass = "item";
-                            if (itemConfig -> choice == "favorite") {
+                        let items = GetAllApartments();
+                        try {
+                            items = JSON.parse(items);
+                        } catch (error) {
+                            
+                        }
+                        items.forEach(item => {
+                            let itemConfig = item.configuration;
+                            try {
+                                itemConfig = JSON.parse(itemConfig);
+                            } catch (error) {
+                                
+                            }
+                            let itemClass = "item";
+                            if (itemConfig.choice == "favorite") {
                                 itemClass = itemClass + " item--best-choice";
                             }
                             row.push(
@@ -34,23 +55,18 @@ function Search() {
                                         runCallback(() => {
                                             const row = [];
 
-                                            if (file_exists($_SERVER["DOCUMENT_ROOT"] + '/public/assets/img/apartments/' + $item -> link + '/1.jpg')) {
+                                            try {
+                                                if (require(`../../assets/img/apartments/${item.link}/1.jpg`)) {
+                                                    row.push(
+                                                        <div className="item-img">
+                                                            <img className="lazy" src={require(`../../assets/img/apartments/${item.link}/1.jpg`).default} alt="Loading..." width="200"height="200"></img>
+                                                        </div>
+                                                    );
+                                                }
+                                            } catch (error) {
                                                 row.push(
                                                     <div className="item-img">
-                                                        <img className="lazy"
-                                                            data-src="/assets/img/apartments/{{ $item->link }}/1.jpg" alt="Loading..." width="200"
-                                                            height="200"></img>
-
-                                                    </div>
-                                                );
-                                            } else {
-                                                row.push(
-                                                    <div className="item-img">
-
-
-                                                        <img className="lazy" data-src="/assets/img/no-image.jpg" alt="No image found!" width="200"
-                                                            height="200"></img>
-
+                                                        <img className="lazy" src={require(`../../assets/img/no-image.jpg`).default} alt="No image found!" width="200" height="200"></img>
                                                     </div>
                                                 );
                                             }
@@ -61,13 +77,13 @@ function Search() {
                                     <div className="item-content">
                                         <div className="item-top">
                                             <div className="item-top__title">
-                                                <span className="item-title">{{ $item-> title}}</span>
+                                                <span className="item-title">{item.title}</span>
                                             </div>
                                             {
                                                 runCallback(() => {
                                                     const row = [];
 
-                                                    if ($itemConfig -> choice == "favorite") {
+                                                    if (itemConfig.choice == "favorite") {
                                                         row.push(
                                                             <div className="item-top__choice">
                                                                 <div className="item-top__choice-container">
@@ -87,36 +103,36 @@ function Search() {
                                                     runCallback(() => {
                                                         const row = [];
 
-                                                        $unitConfig = '';
-                                                        if ($itemConfig -> WC > 0) {
-                                                            $unitConfig = $unitConfig.$itemConfig -> WC. ' WC';
+                                                        let unitConfig = '';
+                                                        if (itemConfig.WC > 0) {
+                                                            unitConfig = unitConfig + itemConfig.WC + ' WC';
                                                         }
 
-                                                        $bedConfig = '';
-                                                        if ($itemConfig -> bedrooms > 0) {
-                                                            $bedConfig = $bedConfig.$itemConfig -> bedrooms. ' bedroom/s (';
+                                                        let bedConfig = '';
+                                                        if (itemConfig.bedrooms > 0) {
+                                                            bedConfig = bedConfig + itemConfig.bedrooms + ' bedroom/s (';
 
-                                                            if ($itemConfig -> singleBeds > 0) {
-                                                                $bedConfig = $bedConfig.$itemConfig -> singleBeds. ' single bed/s, ';
+                                                            if (itemConfig.singleBeds > 0) {
+                                                                bedConfig = bedConfig + itemConfig.singleBeds + ' single bed/s, ';
                                                             }
-                                                            if ($itemConfig -> doubleBeds > 0) {
-                                                                $bedConfig = $bedConfig.$itemConfig -> doubleBeds. ' double bed/s';
+                                                            if (itemConfig.doubleBeds > 0) {
+                                                                bedConfig = bedConfig + itemConfig.doubleBeds + ' double bed/s';
                                                             }
-                                                            $bedConfig = $bedConfig. ')';
+                                                            bedConfig = bedConfig + ')';
                                                         }
-                                                        if ($unitConfig == '') {
-                                                            $unitConfig = 'No information available';
+                                                        if (unitConfig == '') {
+                                                            unitConfig = 'No information available';
                                                         } else {
-                                                            $unitConfig = 'Entire apartment • '.$unitConfig;
+                                                            unitConfig = 'Entire apartment • ' + unitConfig;
                                                         }
 
                                                         row.push(
                                                             <div className="room-info">
                                                                 <div className="unit-configuration">
-                                                                    <span className="unit-configuration-span">{{ $unitConfig }}</span>
+                                                                    <span className="unit-configuration-span">{unitConfig}</span>
                                                                 </div>
                                                                 <div className="bed-configuration">
-                                                                    <span className="bed-configuration-span">{{ $bedConfig }}</span>
+                                                                    <span className="bed-configuration-span">{bedConfig}</span>
                                                                 </div>
                                                             </div>
                                                         );
@@ -126,26 +142,21 @@ function Search() {
                                             </div>
                                             <div className="bottom-right">
                                                 <div className="bottom-right-wrapper">
-                                                    <span
-                                                        className="default">{{ __('search.item__length-of-nights') }}</span>
+                                                    <span className="default">Length of nights</span>
                                                 </div>
                                                 <div className="bottom-right-wrapper">
-                                                    <span className="price">{{ $item-> price * 3}} Kč</span>
+                                                    <span className="price">{item.price * 3} Kč</span>
                                                 </div>
                                                 <div className="bottom-right-wrapper">
-                                                    <span className="taxes-and-fees"><i className="fas fa-check"></i>
-                                                        {{ __('search.item__price-contains') }}</span>
+                                                    <span className="taxes-and-fees"><i className="fas fa-check"></i>Price contains</span>
                                                 </div>
-                                                <a href="apartment/<?php echo $item->link; ?>"
-                                                    className="bottom-right-button">{{ __('search.item__see-availability') }}</a>
+                                                <a href={`apartment/${item.link}`} className="bottom-right-button">See availability</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             );
-                        }
-
-
+                        })
                         return row;
                     })
                 }
