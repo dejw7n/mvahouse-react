@@ -26,10 +26,10 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
-.content-header {
+.main-content-header {
   height: 60vh;
 }
-.content-header img {
+.main-content-header img {
   width: 100%;
   height: 100%;
   object-fit: cover;

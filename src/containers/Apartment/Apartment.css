@@ -1,0 +1,152 @@
+/*padding*/
+#content {
+    padding: 0;
+}
+.apartment-top,
+.description,
+.important-facilities,
+#availability {
+    padding: 0 15px;
+}
+
+.apartment-top {
+    margin-bottom: 20px;
+}
+.apartment-top .title .title-span {
+    font-size: 22px;
+    font-weight: 700;
+}
+.apartment-top .address {
+    margin: 0;
+    font-size: 14px;
+}
+
+.apartment-content .description {
+    margin-top: 50px;
+}
+
+/*Gallery*/
+.gallery {
+    display: block;
+}
+.gallery-main {
+    width: 100%;
+    height: 500px;
+    background-color: #fff;
+}
+@media screen and (max-width: 750px) {
+    .gallery-main {
+        height: 300px;
+    }
+}
+.gallery-main .gallery-item {
+    width: 100%;
+    height: 100%;
+}
+.gallery-video {
+    width: 100%;
+    height: 100%;
+}
+/*VideoJs*/
+.my-video-dimensions {
+    width: 100%;
+    height: 100%;
+}
+/*Gallery*/
+.gallery-minor {
+    display: flex;
+    width: 100%;
+    margin-top: 5px;
+}
+.gallery-minor .gallery-item:not(:first-child) {
+    margin-left: 5px;
+}
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.gallery-img-more {
+    position: relative;
+}
+.gallery-img-more .gallery-img-overlay,
+.gallery-img-more .gallery-img img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.gallery-img-more .gallery-img-overlay {
+    text-align: center;
+}
+.gallery-img-overlay-wrapper {
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+.gallery-img-more .gallery-img-overlay span {
+    margin: auto;
+    color: #fff;
+    font-size: calc(1em + 1vw);
+    font-weight: 600;
+}
+@media screen and (max-width: 750px) {
+    .gallery-img-more .gallery-img-overlay span {
+        font-size: unset;
+    }
+}
+.gallery img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+}
+/**/
+.description-content p {
+    margin: 0;
+    line-height: 30px;
+}
+
+.important-facilities {
+    margin-top: 50px;
+}
+
+.important-facilities-content {
+    display: flex;
+}
+.wrap-important-facilities {
+    margin-right: 10px;
+}
+
+#availability .panel {
+    border-style: solid;
+    border-width: 1px;
+}
+
+#availability .panel .panel-content {
+    display: flex;
+    padding: 24px;
+}
+
+.date-item:first-child {
+    padding-right: 16px;
+    border-right-style: solid;
+    border-right-color: black;
+    border-right-width: 1px;
+}
+.date-item:nth-child(2) {
+    padding-left: 16px;
+}
+
+.date-item p {
+    font-weight: 700;
+}
+
+.date-label {
+    margin: 0;
+}
+
+.date .title a {
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #026ab4;
+}

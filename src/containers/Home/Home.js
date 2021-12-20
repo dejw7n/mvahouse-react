@@ -40,7 +40,7 @@ function Home() {
     })}
     return (
         <main id="main-content">
-            <section className="section-home-header content-header">
+            <section className="section-header main-content-header">
                 <img src={bgImg} alt=""></img>
             </section>
             <SearchPanel />
