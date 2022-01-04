@@ -1,0 +1,25 @@
+footer {
+	color: #000;
+	background-color: #fff;
+}
+.footer-logo {
+	color: #d7a449;
+	font-size: 24px;
+	font-weight: 700;
+}
+#footer-links {
+	display: flex;
+}
+#footer-links .links-block:not(:first-child) {
+	margin-left: 40px;
+}
+#footer-links .links-block h4 {
+	font-size: 18px;
+	font-weight: 500;
+}
+#footer-links .links-block hr {
+	border: none;
+	border-bottom: 0.07692308em solid #e4e4e4;
+	color: #e4e4e4;
+	margin: 0 0 14px 0;
+}

@@ -1,7 +1,21 @@
 #main {
-    margin-top: 2px !important;
+	margin-top: 2px !important;
 }
 .content-search {
-    margin-top: -5vh;
-    position: relative;
+	margin-top: -5vh;
+	position: relative;
+}
+.search-form__advance {
+	width: 0%;
+}
+.search-form__border {
+	margin: 0 12px;
+	border-right-style: solid;
+	border-right-color: #dfdfdf;
+	border-right-width: 1px;
+}
+
+.searchbox__checkin-text,
+.searchbox__checkout-text {
+	margin-left: 10px;
 }

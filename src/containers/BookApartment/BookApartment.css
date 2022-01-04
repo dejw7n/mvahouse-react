@@ -1,0 +1,174 @@
+/*Mobile version*/
+@media screen and (max-width:750px) {
+    #content-wrapper {
+        display: block !important;
+    }
+    #booking {
+        width: 100% !important;
+    }
+    #booking__details {
+        width: 100% !important;
+    }
+    #booking__details-content {
+        padding: 20px 20px 0 20px !important;
+    }
+    .form__submit {
+        width: 100% !important;
+    }
+}
+/**/
+#content-wrapper {
+    display: flex;
+}
+#booking {
+    width: 70%;
+}
+#booking-wrapper {
+    margin: 0 0 15px 0;
+    padding: 20px 0 0 20px;
+}
+#booking__details {
+    width: 30%;
+}
+#booking__details-content {
+    margin: 0 0 15px 0;
+    padding: 20px 0px 0 0;
+}
+/*booking - mobile version*/
+@media screen and (max-width:750px) {
+    #booking-wrapper {
+        padding: 0 !important;
+    }
+    #booking__details-content {
+        padding: 0 !important;
+    }
+}
+.price-details__total-content {
+    padding: 20px 20px 20px 20px;
+}
+
+
+.card {
+    margin-bottom: 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: 2px;
+    background-color: #fff;
+}
+.card-content {
+    padding: 16px;
+}
+.card__title {
+    margin: 1rem 0 1rem 0;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+}
+.card__dates {
+    display: flex;
+}
+
+
+.date-item:first-child {
+    padding-right: 16px;
+    border-right-style: solid;
+    border-right-color: black;
+    border-right-width: 1px;
+}
+.date-item:nth-child(2) {
+    padding-left: 16px;
+}
+.date .title {
+    font-size: 14px;
+    font-weight: 700;
+}
+.date .subtitle {
+    font-size: 14px;
+}
+.date-length {
+    margin-top: 20px;
+}
+.date-length__title {
+    font-weight: 600;
+}
+.date-length__subtitle {
+    font-weight: 700;
+}
+
+
+.price-details__charge-line {
+    display: flex;
+}
+.price-details__charge-value {
+    margin-left: auto;
+    margin-right: 0;
+}
+.price-details__total {
+    color: #bb863e;
+    background-color: #fff4eb;
+}
+.price-details__total-content {
+    display: flex;
+}
+.price-details__charge-name, .price-details__charge-value span {
+    font-weight: 700;
+    font-size: 16px;
+}
+.price-details__charge-description {
+    font-size: 12px;
+}
+
+
+.form {
+    margin-bottom: 10px;
+    border: 1px solid #e6e6e6;
+    border-radius: 2px;
+    background-color: #fff;
+}
+.form__title {
+    padding: 20px;
+    color: #bb863e;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #fff4eb;
+}
+.form__title p {
+    margin: 0;
+}
+.form__wrapper {
+    padding: 20px;
+}
+.form__flex {
+    display: flex;
+}
+.form__flex__inside {
+    width: 49%;
+}
+.form__flex__inside:nth-child(2) {
+    margin-left: auto;
+}
+
+.form__submit {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+    background-color: #ff8d00;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.form__input-select {
+    width: 100%;
+    padding: 7px;
+    cursor: pointer;
+}

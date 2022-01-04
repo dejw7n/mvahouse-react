@@ -1,12 +1,12 @@
 //display
 let calendarNow = null;
 let calendarNowType = null;
-let checkin = document.getElementsByClassName("searchbox__checkin")[0];
+let checkin = document.querySelectorAll("#searchbox__checkin")[0];
 let checkin_input = document.querySelectorAll("#calendar-checkin-input")[0];
-let checkout = document.getElementsByClassName("searchbox__checkout")[0];
+let checkout = document.querySelectorAll("#searchbox__checkout")[0];
 let checkout_input = document.querySelectorAll("#calendar-checkout-input")[0];
-let checkin_calendar = document.querySelectorAll(".searchbox__checkin .calendar-checkin")[0];
-let checkout_calendar = document.querySelectorAll(".searchbox__checkout .calendar-checkout")[0];
+let checkin_calendar = document.querySelectorAll("#searchbox__checkin .calendar-checkin")[0];
+let checkout_calendar = document.querySelectorAll("#searchbox__checkout .calendar-checkout")[0];
 
 function showCalendar(fCalendar) {
     fCalendar.style.display = "block";
@@ -14,7 +14,7 @@ function showCalendar(fCalendar) {
 function hideCalendar(fCalendar) {
     fCalendar.style.display = "none";
 }
-document.addEventListener("click", function(evt) {
+document.addEventListener("click", function (evt) {
     targetElement = evt.target;  // clicked element
 
     do {
@@ -34,7 +34,7 @@ document.addEventListener("click", function(evt) {
         hideCalendar(checkin_calendar);
     }
 });
-document.addEventListener("click", function(evt) {
+document.addEventListener("click", function (evt) {
     targetElement = evt.target;  // clicked element
 
     do {
@@ -59,7 +59,7 @@ document.addEventListener("click", function(evt) {
 
 
 //select date
-document.addEventListener("click", function(evt) {
+document.addEventListener("click", function (evt) {
     targetElement = evt.target;  // clicked element
 
     do {
@@ -130,7 +130,7 @@ function selectDate(func_date) {
             if (dates[index].classList.contains("calendar__date--disabled") == false) {
                 if (dates[index].getAttribute("data-ref") != null && dates[index].getAttribute("data-date") != null) {
                     if (input1 < Date.parse(dates[index].getAttribute("data-date")) && Date.parse(dates[index].getAttribute("data-date")) < input2)
-                    dates[index].classList.add("calendar__date--in-range");
+                        dates[index].classList.add("calendar__date--in-range");
                 }
             }
         }
@@ -165,7 +165,7 @@ try {
         url_checkin_element = document.querySelectorAll("td[data-date='" + url_checkin + "']")[0];
         selectDate(url_checkin_element);
     }
-} catch (error) {}
+} catch (error) { }
 try {
     var url_checkout = url.searchParams.get("checkout");
     if (url_checkout !== 'undefined') {
@@ -174,4 +174,4 @@ try {
         url_checkout_element = document.querySelectorAll("td[data-date='" + url_checkout + "']")[0];
         selectDate(url_checkout_element);
     }
-} catch (error) {}
+} catch (error) { }
