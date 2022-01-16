@@ -28,7 +28,7 @@ import img from "../../assets/img/apartments/apartment-21/1.jpg";
 import ApartmentGallery from "../../components/ApartmentGallery/ApartmentGallery";
 
 const product = {
-	name: "Dvoulůžkový apartmán",
+	name: "Double room",
 	price: "$50",
 	href: "#",
 	breadcrumbs: [
@@ -105,14 +105,14 @@ export default function Example() {
 									))}
 								</div>
 								<a href={reviews.href} className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
-									{reviews.totalCount} hodnocení
+									{reviews.totalCount} reviews
 								</a>
 							</div>
 						</div>
 
 						<form className="mt-10">
 							<button type="submit" className="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-								Zobrazit více
+								Show more
 							</button>
 						</form>
 					</div>

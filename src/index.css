@@ -2,14 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.border-spacing-0 {
+		border-spacing: 0;
+	}
+}
+
+.border-dotted-custom {
+	background-image: linear-gradient(black 33%, rgba(255, 255, 255, 0) 0%);
+	background-position: left;
+	background-size: 1px 8px;
+	background-repeat: repeat-y;
+}
+
+.cut-circle {
+	position: relative;
+}
+.cut-circle:before {
+	/*paper cut*/
+	position: absolute;
+	content: "";
+	width: 20px;
+	height: 20px;
+	top: -10px;
+	left: -10px;
+	background-color: #e6e9ec;
+	border-radius: 50%;
+}
+.cut-circle:after {
+	/*paper cut*/
+	position: absolute;
+	content: "";
+	width: 20px;
+	height: 20px;
+	bottom: -10px;
+	left: -10px;
+	background-color: #e6e9ec;
+	border-radius: 50%;
+}
+
 body {
-	background-color: #fff;
+	background-color: #e6e9ec;
 	color: #222;
 	display: flex;
 	flex-direction: column;
-	font: 15px/1.6 "-apple-system", BlinkMacSystemFont, "Segoe UI", Roboto,
-		Oxygen-Sans, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
-		"Helvetica Neue", sans-serif;
+	font: 15px/1.6 "-apple-system", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 	margin: 0;
 	overflow-x: hidden;
 	padding: 0;

@@ -14,6 +14,47 @@ function Search() {
 		<main id="main-content">
 			<Intro />
 			<SearchPanel />
+			<section className="py-6 px-4 sm:p-6 md:py-10 md:px-8">
+				<div className="max-w-4xl mx-auto lg:max-w-5xl">
+					<div className="mb-5">
+						<h1 className="text-lg font-semibold text-gray-600">15 results found</h1>
+					</div>
+					<div className="flex h-52 bg-white border-2 border-gray-200">
+						<div className="w-80">
+							<img className="w-full h-full" src={require(`../../assets/img/apartments/apartment-21/1.jpg`).default} alt="Loading..."></img>
+						</div>
+						<div className="block border-r-2 border-gray-200">
+							<div className="grid w-28 h-1/2">
+								<div className="m-auto">
+									<h1 className="text-4xl text-center font-semibold text-blue-400">4</h1>
+									<p className="text-center font-semibold text-gray-500">Bedrooms</p>
+								</div>
+							</div>
+							<div className="grid w-28 h-1/2 border-t-2 border-gray-200">
+								<div className="m-auto">
+									<h1 className="text-4xl text-center font-semibold text-blue-400">1.5</h1>
+									<p className="text-center font-semibold text-gray-500">Bathrooms</p>
+								</div>
+							</div>
+						</div>
+						<div className="p-4">
+							<h1 className="text-2xl font-semibold text-gray-700">Two-Bedroom Apartment</h1>
+							<p className="text-sm text-gray-400">Vrchlického 1240/23, Teplice 41501</p>
+							<p className="mt-2 text-base">This modern apartment comfortably sleeps 5 people and is located on the 2nd floor.</p>
+						</div>
+						<div className="grid min-w-max cut-circle border-dotted-custom">
+							<div className="grid m-auto">
+								<h1 className="text-3xl font-semibold text-gray-700">3000,- Kč</h1>
+								<p className="text-sm text-center text-gray-500 font-semibold">PER MONTH</p>
+								<button type="button" className="mt-2 mx-auto bg-yellow-500 py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-white hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
+									View details
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
 			<div id="items" className="py-6 px-4 sm:p-6 md:py-10 md:px-8">
 				<div className="max-w-4xl mx-auto lg:max-w-5xl">
 					{runCallback(() => {

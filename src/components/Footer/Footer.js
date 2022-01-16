@@ -64,19 +64,13 @@ function Footer() {
 							<div class="">
 								<h6 class="uppercase font-semibold mb-4 flex justify-center md:justify-start">Platební karty</h6>
 								<p class="mb-4">
-									<a href="#!" class="text-gray-600">
-										Visa
-									</a>
+									<object className="max-w-full max-h-10" data={require(`../../assets/svg/visa.svg`).default} type="image/svg+xml"></object>
 								</p>
 								<p class="mb-4">
-									<a href="#!" class="text-gray-600">
-										Mastercard
-									</a>
+									<object className="max-w-full max-h-10" data={require(`../../assets/svg/mastercard.svg`).default} type="image/svg+xml"></object>
 								</p>
 								<p class="mb-4">
-									<a href="#!" class="text-gray-600">
-										Paypal
-									</a>
+									<object className="max-w-full max-h-10" data={require(`../../assets/svg/paypal.svg`).default} type="image/svg+xml"></object>
 								</p>
 								<p>
 									<a href="#!" class="text-gray-600">

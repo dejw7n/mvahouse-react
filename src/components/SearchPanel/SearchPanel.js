@@ -13,7 +13,9 @@ function SearchPanel() {
 							<div>
 								<div id="searchbox__checkin" className="flex" tabIndex="1">
 									<div>{/*<i className="far fa-calendar-plus" style="font-size:24px"></i>*/}</div>
-									<div className="ml-3">Check-in Date</div>
+									<div id="checkin-text" className="ml-3">
+										Check-in Date
+									</div>
 									<input type="hidden" name="checkin" id="calendar-checkin-input" value=""></input>
 									<div className="calendar-checkin" style={{ display: "none" }}>
 										<DateCalendar />
@@ -29,7 +31,9 @@ function SearchPanel() {
 							<div>
 								<div id="searchbox__checkout" className="flex" tabIndex="1">
 									<div>{/*<i className="far fa-calendar-plus" style="font-size:24px"></i>*/}</div>
-									<div className="ml-3">Check-out Date</div>
+									<div id="checkout-text" className="ml-3">
+										Check-out Date
+									</div>
 									<input type="hidden" name="checkout" id="calendar-checkout-input" value=""></input>
 									<div className="calendar-checkout" style={{ display: "none" }}>
 										<DateCalendar />
@@ -41,7 +45,7 @@ function SearchPanel() {
 					{/*<div className="search-form__border"></div>
 					<div className="search-form__advance"></div>
 <div className="search-form__border"></div>*/}
-					<button type="button" class="w-full md:w-1/5 bg-yellow-600 text-white text-xl leading-6 font-medium py-2 px-3 rounded-lg">
+					<button type="button" className="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
 						Search
 					</button>
 				</div>

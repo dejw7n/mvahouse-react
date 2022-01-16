@@ -35,11 +35,40 @@ function Home() {
 			<Intro />
 			<SearchPanel />
 			<section className="py-6 px-4 sm:p-6 md:py-10 md:px-8">
+				<div className="max-w-4xl mx-auto lg:max-w-5xl text-center">
+					<h1 className="text-4xl uppercase text-yellow-600">Welcome to MVAhouse</h1>
+					<h1 className="text-2xl text-gray-500">Aparthotel</h1>
+					<p className="mt-6 text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at leo efficitur quam imperdiet lobortis dignissim sit amet mi. Quisque semper ligula vel metus condimentum, vitae cursus odio finibus. Sed ullamcorper quam eros, nec ornare justo dignissim a. In iaculis pellentesque magna, id tristique purus tincidunt at.</p>
+					<div className="mt-6 md:flex">
+						<div className="relative md:w-3/6 md:pr-3">
+							<span className="absolute bottom-3 left-3 text-gray-200">Entire house</span>
+							<img className="w-full h-full object-cover rounded-lg" src={require("../../assets/img/mvahouse/front.jpg").default} alt="" />
+						</div>
+						<div className="mt-6 md:w-3/6 md:mt-0 md:pl-3">
+							<div className="relative h-52 pb-3">
+								<span className="absolute bottom-6 left-3 text-gray-200">Large bedroom</span>
+								<img className="w-full h-full object-cover rounded-lg" src={require("../../assets/img/mvahouse/front.jpg").default} alt="" />
+							</div>
+							<div className="flex h-40 pt-3">
+								<div className="relative w-1/2 pr-3">
+									<span className="absolute bottom-3 left-3 text-gray-200">Large bedroom</span>
+									<img className="w-full h-full object-cover rounded-lg" src={require("../../assets/img/mvahouse/front.jpg").default} alt="" />
+								</div>
+								<div className="relative w-1/2 pl-3">
+									<span className="absolute bottom-3 left-6 text-gray-200">Large bedroom</span>
+									<img className="w-full h-full object-cover rounded-lg" src={require("../../assets/img/mvahouse/front.jpg").default} alt="" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section className="py-6 px-4 sm:p-6 md:py-10 md:px-8">
 				<div className="max-w-4xl mx-auto lg:max-w-5xl">
 					<div className="">
 						<div className="md:width-1/2 grid content-around mr-6">
 							<div className="">
-								<h1 className="mt-1 text-lg font-semibold text-black md:text-2xl">Zarezervujte si apartmán nyní!</h1>
+								<h1 className="mt-1 text-lg font-semibold text-black md:text-2xl">Book your apartment now!</h1>
 							</div>
 						</div>
 						<ReserveApartmentNow />
@@ -51,7 +80,7 @@ function Home() {
 					<div class="max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2">
 						<div class="relative p-3 col-start-1 row-start-1 flex flex-col-reverse rounded-lg bg-gradient-to-t from-black/75 via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
 							<h1 class="mt-1 text-lg font-semibold text-white sm:text-gray-900 md:text-2xl dark:sm:text-white">Aparthotel</h1>
-							<p class="text-sm leading-4 font-medium text-white sm:text-gray-500 dark:sm:text-gray-400">Celý dům</p>
+							<p class="text-sm leading-4 font-medium text-white sm:text-gray-500 dark:sm:text-gray-400">Entire house</p>
 						</div>
 						<div class="grid gap-4 col-start-1 col-end-3 row-start-1 sm:mb-6 sm:grid-cols-4 lg:gap-6 lg:col-start-2 lg:row-end-6 lg:row-span-6 lg:mb-0">
 							<img src={houseFrontImg} alt="" class="w-full h-60 object-cover rounded-lg sm:h-52 sm:col-span-2 lg:col-span-full" loading="lazy"></img>
@@ -81,10 +110,10 @@ function Home() {
 						</dl>
 						<div class="mt-4 col-start-1 row-start-3 self-center sm:mt-0 sm:col-start-2 sm:row-start-2 sm:row-span-2 lg:mt-6 lg:col-start-1 lg:row-start-3 lg:row-end-4">
 							<button type="button" class="bg-indigo-600 text-white text-sm leading-6 font-medium py-2 px-3 rounded-lg">
-								Zkontrolovat dostupnost
+								Check availability
 							</button>
 						</div>
-						<p class="mt-4 text-sm leading-6 col-start-1 sm:col-span-2 lg:mt-6 lg:row-start-4 lg:col-span-1 dark:text-gray-400">MVAhouse se nachází 2,1 km od stadionu Na Stínadlech. Nabízí ubytování s Wi-Fi zdarma a neplacené soukromé parkoviště. Ubytování je vybaveno lednicí, varnou deskou a rychlovarnou konvicí. Během pobytu můžete relaxovat na zahradě. Aparthotel stojí 67 km od letiště Václava Havla Praha.</p>
+						<p class="mt-4 text-sm leading-6 col-start-1 sm:col-span-2 lg:mt-6 lg:row-start-4 lg:col-span-1 dark:text-gray-400">It offers accommodation with free Wi-Fi and unpaid private parking. The accommodation is equipped with a fridge, hob and kettle. During your stay you can relax in the garden. Aparthotel is 67 km from Václav Havel Airport Prague.</p>
 					</div>
 				</div>
 			</section>
@@ -93,8 +122,8 @@ function Home() {
 					<div className="md:flex">
 						<div className="md:width-1/2 grid content-around mr-6">
 							<div className="">
-								<h1 className="mt-1 text-lg font-semibold text-black md:text-2xl">Místní zajimavosti</h1>
-								<p class="mt-4 text-sm leading-6 lg:mt-6">Lokality které stojí za to navštívit v Teplicích...</p>
+								<h1 className="mt-1 text-lg font-semibold text-black md:text-2xl">Local attractions</h1>
+								<p class="mt-4 text-sm leading-6 lg:mt-6">Locations that are worth visiting in Teplice...</p>
 							</div>
 						</div>
 						<div className="mt-6 grid grid-cols-3 gap-x-6">
