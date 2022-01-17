@@ -56,9 +56,6 @@ function DateCalendar() {
 												let monthLength = (monthEnd - monthStart) / (1000 * 60 * 60 * 24);
 
 												let daysInMonth = monthLength;
-												{
-													/*let daysInMonth = cal_days_in_month(CAL_GREGORIAN, month, date("Y"));*/
-												}
 												const row = [];
 												while (running) {
 													if (day >= daysInMonth) {
@@ -66,14 +63,6 @@ function DateCalendar() {
 													}
 													if (rowDayOfTheWeek > 7) {
 														rowDayOfTheWeek = 1;
-														{
-															/*row.push(
-                                                                    <div>
-                                                                        <td></td>
-                                                                        <tr className="calendar__row"></tr>
-                                                                    </div>
-                                                                );*/
-														}
 													}
 													row.push(
 														<tr className="calendar__row">

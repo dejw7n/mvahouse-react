@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 class ApartmentGallery extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		let apartment = this.props.apartment;
 
@@ -22,7 +18,7 @@ class ApartmentGallery extends Component {
 								let a = "{a";
 								a = JSON.parse(a);
 							}
-							if (require(`../../assets/video/${apartment}.mp4`)) {
+							if (require(`../../assets/video/${apartment}.mp4`) == true) {
 								row.push(
 									<div className="w-full h-full">
 										<video id="my-video" className="video-js w-full h-full" controls preload="auto" width="0" height="0" poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
