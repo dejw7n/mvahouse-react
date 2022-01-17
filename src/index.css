@@ -2,59 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	body {
+		background-color: #e6e9ec;
+		color: #222;
+		display: flex;
+		flex-direction: column;
+		font: 15px/1.6 "-apple-system", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+		margin: 0;
+		overflow-x: hidden;
+		padding: 0;
+		word-wrap: break-word;
+		max-width: 100%;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		-webkit-tap-highlight-color: transparent;
+		-webkit-text-size-adjust: 100%;
+		-webkit-font-smoothing: antialiased;
+		-webkit-overflow-scrolling: touch;
+	}
+}
+
 @layer components {
+	.min-w-\[200px\] {
+		min-width: 200px;
+	}
+	.h-\[50vh\] {
+		height: 50vh;
+	}
+	.min-w-\[150px\] {
+		min-width: 150px;
+	}
 	.border-spacing-0 {
 		border-spacing: 0;
 	}
 }
 
-.border-dotted-custom {
-	background-image: linear-gradient(black 33%, rgba(255, 255, 255, 0) 0%);
+.tear-paper-left {
+	position: relative;
+	background-image: linear-gradient(#e6e9ec 33%, rgba(255, 255, 255, 0) 0%);
 	background-position: left;
-	background-size: 1px 8px;
+	background-size: 4px 8px;
 	background-repeat: repeat-y;
 }
-
-.cut-circle {
-	position: relative;
-}
-.cut-circle:before {
-	/*paper cut*/
+.tear-paper-left:before {
 	position: absolute;
 	content: "";
 	width: 20px;
 	height: 20px;
 	top: -10px;
-	left: -10px;
+	left: -8px;
 	background-color: #e6e9ec;
 	border-radius: 50%;
 }
-.cut-circle:after {
-	/*paper cut*/
+.tear-paper-left:after {
 	position: absolute;
 	content: "";
 	width: 20px;
 	height: 20px;
 	bottom: -10px;
-	left: -10px;
+	left: -8px;
 	background-color: #e6e9ec;
 	border-radius: 50%;
 }
-
-body {
-	background-color: #e6e9ec;
-	color: #222;
-	display: flex;
-	flex-direction: column;
-	font: 15px/1.6 "-apple-system", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-	margin: 0;
-	overflow-x: hidden;
-	padding: 0;
-	word-wrap: break-word;
-	max-width: 100%;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-	-webkit-tap-highlight-color: transparent;
-	-webkit-text-size-adjust: 100%;
-	-webkit-font-smoothing: antialiased;
-	-webkit-overflow-scrolling: touch;
+.bg-overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	background: radial-gradient(ellipse at center, transparent 36%, rgba(0, 0, 0, 0.4) 100%);
 }

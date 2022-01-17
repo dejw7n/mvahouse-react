@@ -1,4 +1,4 @@
-import bgImg from "../../assets/img/header.jpg";
+import bgImg from "../../assets/img/header-min.webp";
 
 export default function Intro() {
 	return (
@@ -9,7 +9,7 @@ export default function Intro() {
 				<div className="py-6 px-4 sm:p-6 md:py-10 md:px-8">
 					<div className="container max-w-4xl lg:max-w-5xl mx-auto">
 						<h1 className="text-4xl text-white uppercase tracking-widest leading-loose">Nadpis záhlaví</h1>
-						<p className="text-gray-300">Popisek záhlaví. Popisek záhlaví. Popisek záhlaví. Popisek záhlaví. Popisek záhlaví. Popisek záhlaví. Popisek záhlaví</p>
+						<p className="text-gray-300">Popisek záhlaví.</p>
 					</div>
 				</div>
 			</div>

@@ -4,7 +4,7 @@ import DateCalendar from "../DateCalendar/DateCalendar";
 
 function SearchPanel() {
 	return (
-		<div className="py-4 px-4 md:px-8">
+		<div className="py-4 px-4 bg-white md:px-8">
 			<form action="/search" method="get" className="max-w-4xl mx-auto lg:max-w-5xl">
 				<div className="md:flex mb-1 bg-white">
 					<div className="flex py-4 md:py-0 md:w-2/5 min-w-[150px]">
@@ -45,9 +45,11 @@ function SearchPanel() {
 					{/*<div className="search-form__border"></div>
 					<div className="search-form__advance"></div>
 <div className="search-form__border"></div>*/}
-					<button type="button" className="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-						Search
-					</button>
+					<a href="/search">
+						<button type="button" className="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+							Search
+						</button>
+					</a>
 				</div>
 			</form>
 
