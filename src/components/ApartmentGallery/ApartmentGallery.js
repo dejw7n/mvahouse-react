@@ -19,7 +19,8 @@ class ApartmentGallery extends Component {
 
 						try {
 							if (this.props.video != "true") {
-								require("../../assets/video/novideo..aw");
+								let a = "{a";
+								a = JSON.parse(a);
 							}
 							if (require(`../../assets/video/${apartment}.mp4`)) {
 								row.push(
