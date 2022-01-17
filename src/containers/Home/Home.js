@@ -63,7 +63,7 @@ function Home() {
 					</div>
 				</div>
 			</section>
-			<section className="py-6 px-4 sm:p-6 md:py-10 md:px-8">
+			<section className="py-6 px-4 bg-white sm:p-6 md:py-10 md:px-8">
 				<div className="max-w-4xl mx-auto lg:max-w-5xl">
 					<div className="">
 						<div className="md:width-1/2 grid content-around mr-6">
