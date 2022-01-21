@@ -5,7 +5,7 @@ import logoIcon from "../../assets/img/logoIcon.png";
 import logoText from "../../assets/img/logoText.png";
 
 const navigation = [
-	{ name: "Home", href: "#", current: true },
+	{ name: "Home", href: "/", current: true },
 	{ name: "About us", href: "#", current: false },
 	{ name: "Gallery", href: "#", current: false },
 	{ name: "Contact", href: "#", current: false },
