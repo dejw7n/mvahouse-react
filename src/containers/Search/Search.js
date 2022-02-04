@@ -12,7 +12,6 @@ function Search() {
 	};
 	return (
 		<main id="main-content">
-			<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
 			<Intro />
 			<SearchPanel />
 			<section className="py-6 px-4 sm:p-6 md:py-10 md:px-8">

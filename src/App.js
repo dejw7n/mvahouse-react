@@ -4,6 +4,7 @@ import "./App.css";
 import "./assets/css/videojs.css";
 
 import useScript from "./components/UseScript/UseScript";
+import { Helmet } from "react-helmet";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./containers/Home/Home";
@@ -23,6 +24,9 @@ function App() {
 	UseScripts();
 	return (
 		<BrowserRouter>
+			<Helmet>
+				<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
+			</Helmet>
 			<div className="App">
 				<Header />
 				<Routes>
