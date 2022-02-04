@@ -4,7 +4,7 @@ import Axios from "axios";
 export function GetApartment(link) {
 	const [apartment, setApartment] = useState([]);
 	useEffect(() => {
-		Axios.get(`http://162.55.238.33:25677/api/getApartment/${link}`).then((response) => {
+		Axios.get(`http://194.87.139.53:8443/api/getApartment/${link}`).then((response) => {
 			setApartment(response.data);
 		});
 	}, []);
@@ -14,7 +14,7 @@ export function GetApartment(link) {
 export function GetAllApartments() {
 	const [apartmentList, setApartmentList] = useState([]);
 	useEffect(() => {
-		Axios.get(`http://162.55.238.33:25677/api/getAllApartments`).then((response) => {
+		Axios.get(`http://194.87.139.53:8443/api/getAllApartments`).then((response) => {
 			setApartmentList(response.data);
 		});
 	}, []);
