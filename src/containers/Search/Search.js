@@ -23,7 +23,10 @@ function Search() {
 						let apartments = GetAllApartments();
 						try {
 							apartments = JSON.parse(apartments);
-						} catch (error) {}
+							console.log("parse suscessful");
+						} catch (error) {
+							console.log("apartments json parse error");
+						}
 						//
 						row.push(
 							<div className="">
