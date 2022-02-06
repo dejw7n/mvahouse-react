@@ -43,49 +43,31 @@ function Apartment() {
 						<main id="main-content">
 							<section className="py-6 px-4 sm:p-6 md:py-10 md:px-8">
 								<div className="max-w-4xl mx-auto lg:max-w-5xl">
-									<div className="mb-5">
-										<div className="title">
-											<span className="text-2xl text-bold">{apartment.title}</span>
-										</div>
-										<p className="m-0 text-sm">
-											<i className="fas fa-map-marker-alt"></i> Vrchlického 1240/23, Teplice, 415 01, Czech Republic
-										</p>
-									</div>
-									<div className="apartment-content">
-										<ApartmentGallery apartment={apartment.link} video="true" />
-										<ApartmentSpecs apartment={apartment.link} />
-										<div className="mt-12">
-											<div className="description-content">
-												<p>No information available.</p>
+									<div className="bg-white">
+										<div className="max-w-2xl mx-auto py-8 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+											<div className="mb-5">
+												<div className="title">
+													<span className="text-2xl font-bold">{apartment.title}</span>
+												</div>
+												<p className="m-0 text-sm">
+													<i className="fas fa-map-marker-alt"></i> Vrchlického 1240/23, Teplice, 415 01, Czech Republic
+												</p>
 											</div>
-										</div>
-										<div className="important-facilities">
-											<h3>Most popular facilities</h3>
-											<div className="important-facilities-content">
-												<div className="wrap-important-facilities">
-													<i className="fas fa-smoking-ban"></i> Non-smoking rooms
-												</div>
-												<div className="wrap-important-facilities">
-													<i className="fas fa-parking"></i> Free Parking
-												</div>
-												<div className="wrap-important-facilities">
-													<i className="fas fa-wifi"></i> Free Wi-Fi
-												</div>
-												<div className="wrap-important-facilities">
-													<i className="fas fa-paw"></i> Pet friendly
-												</div>
+											<div className="apartment-content">
+												<ApartmentGallery apartment={apartment.link} video="true" />
+												<ApartmentSpecs apartment={apartment.link} />
 											</div>
-										</div>
-									</div>
-									<div id="availability">
-										<div className="section-header">
-											<h2>Availability</h2>
-										</div>
+											<div>
+												<div className="section-header">
+													<h1 class="text-2xl font-bold">Availability</h1>
+												</div>
 
-										<form action="/posts/reserveApartment.php" method="post">
-											<input type="hidden" name="apartment" value="{{ $URL_apartment }}" />
-											<SearchPanel />
-										</form>
+												<form action="/posts/reserveApartment.php" method="post">
+													<input type="hidden" name="apartment" value="{{ $URL_apartment }}" />
+													<SearchPanel />
+												</form>
+											</div>
+										</div>
 									</div>
 								</div>
 							</section>

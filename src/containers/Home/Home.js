@@ -63,6 +63,34 @@ function Home() {
 					</div>
 				</div>
 			</section>
+			<section className="py-6 px-4 sm:p-6 md:py-10 md:px-8">
+				<div className="max-w-4xl mx-auto lg:max-w-5xl">
+					<div className="md:flex">
+						<div className="md:width-1/2 grid content-around mr-6">
+							<div className="">
+								<h1 className="mt-1 text-lg font-semibold text-black md:text-2xl">Local attractions</h1>
+								<p class="mt-4 text-sm leading-6 lg:mt-6">Locations that are worth visiting in Teplice...</p>
+							</div>
+						</div>
+						<div className="mt-6 grid grid-cols-3 gap-x-6">
+							{callouts.map((callout) => (
+								<div key={callout.name} className="group relative">
+									<div className="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
+										<img src={callout.imageSrc} alt={callout.imageAlt} className="w-full h-full object-center object-cover" />
+									</div>
+									<h3 className="mt-6 text-sm text-gray-500">
+										<a href={callout.href}>
+											<span className="absolute inset-0" />
+											{callout.name}
+										</a>
+									</h3>
+									<p className="text-base font-semibold text-gray-900">{callout.description}</p>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</section>
 			<section className="py-6 px-4 bg-white sm:p-6 md:py-10 md:px-8">
 				<div className="max-w-4xl mx-auto lg:max-w-5xl">
 					<div className="">
@@ -114,34 +142,6 @@ function Home() {
 							</button>
 						</div>
 						<p class="mt-4 text-sm leading-6 col-start-1 sm:col-span-2 lg:mt-6 lg:row-start-4 lg:col-span-1 dark:text-gray-400">It offers accommodation with free Wi-Fi and unpaid private parking. The accommodation is equipped with a fridge, hob and kettle. During your stay you can relax in the garden. Aparthotel is 67 km from Václav Havel Airport Prague.</p>
-					</div>
-				</div>
-			</section>
-			<section className="py-6 px-4 sm:p-6 md:py-10 md:px-8">
-				<div className="max-w-4xl mx-auto lg:max-w-5xl">
-					<div className="md:flex">
-						<div className="md:width-1/2 grid content-around mr-6">
-							<div className="">
-								<h1 className="mt-1 text-lg font-semibold text-black md:text-2xl">Local attractions</h1>
-								<p class="mt-4 text-sm leading-6 lg:mt-6">Locations that are worth visiting in Teplice...</p>
-							</div>
-						</div>
-						<div className="mt-6 grid grid-cols-3 gap-x-6">
-							{callouts.map((callout) => (
-								<div key={callout.name} className="group relative">
-									<div className="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
-										<img src={callout.imageSrc} alt={callout.imageAlt} className="w-full h-full object-center object-cover" />
-									</div>
-									<h3 className="mt-6 text-sm text-gray-500">
-										<a href={callout.href}>
-											<span className="absolute inset-0" />
-											{callout.name}
-										</a>
-									</h3>
-									<p className="text-base font-semibold text-gray-900">{callout.description}</p>
-								</div>
-							))}
-						</div>
 					</div>
 				</div>
 			</section>

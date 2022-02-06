@@ -11,9 +11,12 @@ import Search from "./containers/Search/Search";
 import Apartment from "./containers/Apartment/Apartment";
 import BookApartment from "./containers/BookApartment/BookApartment";
 
+import AdminDashboard from "./containers/Admin/Dashboard/Dashboard";
+
 const UseScripts = (props) => {
 	useScript("/assets/js/header.js");
 	useScript("/assets/js/calendar.js");
+	useScript("/assets/js/viewApartment.js");
 	useScript("/assets/js/lazyLoad.js");
 	useScript("/assets/js/gallery.js");
 	useScript("https://vjs.zencdn.net/7.17.0/video.min.js");
@@ -30,6 +33,7 @@ function App() {
 					<Route path="/search" element={<Search />}></Route>
 					<Route path="/apartment/:apartment" element={<Apartment />}></Route>
 					<Route path="/bookApartment/" element={<BookApartment />}></Route>
+					<Route path="/Admin/" element={<AdminDashboard />}></Route>
 				</Routes>
 				<Footer />
 			</div>

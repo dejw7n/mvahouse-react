@@ -15,7 +15,8 @@ class ApartmentGallery extends Component {
 
 						try {
 							if (this.props.video != "true") {
-								let a = "{a";
+								//cause an error
+								let a = "null";
 								a = JSON.parse(a);
 							}
 							if (require(`../../assets/video/${apartment}.mp4`) == true) {
@@ -85,15 +86,21 @@ class ApartmentGallery extends Component {
 										</div>
 									);
 								} else {
+									let imgClass = null;
+									if (forImg == 1) {
+										imgClass = "ml-0";
+									} else {
+										imgClass = "ml-1";
+									}
 									if (forImg > showImgs) {
 										row.push(
-											<div id="gallery-item" className="ml-1 first:ml-0" style={{ display: "none" }}>
+											<div id="gallery-item" className={imgClass} style={{ display: "none" }}>
 												<img id="gallery-img" className="w-full h-full object-cover" src={require(`../../assets/img/apartments/${apartment}/${forImg}.jpg`).default} alt=""></img>
 											</div>
 										);
 									} else {
 										row.push(
-											<div id="gallery-item" className="ml-1 first:ml-0">
+											<div id="gallery-item" className={imgClass}>
 												<img id="gallery-img" className="w-full h-full object-cover" src={require(`../../assets/img/apartments/${apartment}/${forImg}.jpg`).default} alt=""></img>
 											</div>
 										);

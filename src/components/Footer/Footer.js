@@ -72,11 +72,6 @@ function Footer() {
 								<p class="mb-4">
 									<object className="max-w-full max-h-10" data={require(`../../assets/svg/paypal.svg`).default} type="image/svg+xml"></object>
 								</p>
-								<p>
-									<a href="#!" class="text-gray-600">
-										Skrill
-									</a>
-								</p>
 							</div>
 						</div>
 					</div>
@@ -84,9 +79,7 @@ function Footer() {
 			</div>
 			<div class="text-center p-6 bg-gray-200">
 				<span>2021 © </span>
-				<a class="text-gray-600 font-semibold" href="https://tailwind-elements.com/">
-					MVAhouse Capital company
-				</a>
+				<span class="text-gray-600 font-semibold">MVAhouse Capital company</span>
 			</div>
 		</footer>
 	);
