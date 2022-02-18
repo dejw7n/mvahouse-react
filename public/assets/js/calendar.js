@@ -8,6 +8,16 @@ let checkout_input = document.querySelectorAll("#calendar-checkout-input")[0];
 let checkin_calendar = document.querySelectorAll("#searchbox__checkin .calendar-checkin")[0];
 let checkout_calendar = document.querySelectorAll("#searchbox__checkout .calendar-checkout")[0];
 
+//get cookie
+const getCookieValue = (name) => document.cookie.match("(^|;)\\s*" + name + "\\s*=\\s*([^;]+)")?.pop() || "";
+//set cookie
+function setCookie(cName, cValue, expDays) {
+	let date = new Date();
+	date.setTime(date.getTime() + expDays * 24 * 60 * 60 * 1000);
+	const expires = "expires=" + date.toUTCString();
+	document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
+}
+
 function showCalendar(fCalendar) {
 	fCalendar.style.display = "block";
 }
@@ -95,6 +105,7 @@ function selectDate(func_date) {
 			return;
 		}
 		checkin_input.setAttribute("value", selected_date);
+		setCookie("book-checkin", selected_date, 30);
 		calendar_checkin_text.innerHTML = selected_date;
 	}
 	if (calendarNowType == "checkout") {
@@ -104,6 +115,7 @@ function selectDate(func_date) {
 			return;
 		}
 		checkout_input.setAttribute("value", selected_date);
+		setCookie("book-checkout", selected_date, 30);
 		calendar_checkout_text.innerHTML = selected_date;
 	}
 	if (typeof checkin_input.getAttribute("value") != "undefined") {
@@ -147,24 +159,22 @@ function makeCalendar(mode) {
 	}
 }
 
-//get from url selected date
-var url_string = window.location.href;
-var url = new URL(url_string);
+//read from cookie and set
 try {
-	var url_checkin = url.searchParams.get("checkin");
+	var url_checkin = getCookieValue("book-checkin");
 	if (url_checkin !== "undefined") {
 		calendarNow = checkin_calendar;
 		calendarNowType = "checkin";
-		url_checkin_element = document.querySelectorAll("td[data-date='" + url_checkin + "']")[0];
+		let url_checkin_element = document.querySelectorAll("td[data-date='" + url_checkin + "']")[0];
 		selectDate(url_checkin_element);
 	}
 } catch (error) {}
 try {
-	var url_checkout = url.searchParams.get("checkout");
+	var url_checkout = getCookieValue("book-checkout");
 	if (url_checkout !== "undefined") {
 		calendarNow = checkout_calendar;
 		calendarNowType = "checkout";
-		url_checkout_element = document.querySelectorAll("td[data-date='" + url_checkout + "']")[0];
+		let url_checkout_element = document.querySelectorAll("td[data-date='" + url_checkout + "']")[0];
 		selectDate(url_checkout_element);
 	}
 } catch (error) {}

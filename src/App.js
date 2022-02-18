@@ -16,7 +16,6 @@ import AdminDashboard from "./containers/Admin/Dashboard/Dashboard";
 const UseScripts = (props) => {
 	useScript("/assets/js/header.js");
 	useScript("/assets/js/calendar.js");
-	useScript("/assets/js/viewApartment.js");
 	useScript("/assets/js/lazyLoad.js");
 	useScript("/assets/js/gallery.js");
 	useScript("https://vjs.zencdn.net/7.17.0/video.min.js");

@@ -34,9 +34,9 @@ function Apartment() {
 					//window.location.replace('/');
 				}
 				const cookies = new Cookies();
-				cookies.set("book-apartment", "Apartment-21", { path: "/" });
-				cookies.set("book-checkin", "2021-12-1", { path: "/" });
-				cookies.set("book-checkout", "2021-12-14", { path: "/" });
+				cookies.get("book-apartment", "Apartment-21", { path: "/" });
+				cookies.get("book-checkin", "2021-12-1", { path: "/" });
+				cookies.get("book-checkout", "2021-12-14", { path: "/" });
 
 				apartments.forEach((apartment) => {
 					row.push(

@@ -47,7 +47,7 @@ class ApartmentGallery extends Component {
 							} catch (error) {
 								row.push(
 									<div id="gallery-item" className="w-full h-full">
-										<img id="gallery-img" className="w-full h-full object-cover" src={require(`../../assets/img/no-image.jpg`).default} alt=""></img>
+										<img id="gallery-img" className="w-full h-full object-contain" src={require(`../../assets/img/no-image.jpg`).default} alt=""></img>
 									</div>
 								);
 							}

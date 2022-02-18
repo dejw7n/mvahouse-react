@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 import "./Search.css";
 import "./Items.css";
 import bgImg from "../../assets/img/header-min.webp";
 import SearchPanel from "../../components/SearchPanel/SearchPanel";
 import { GetAllApartments } from "../../components/ApartmentManager/ApartmentManager";
 import Intro from "../../components/Intro/Intro";
+
+const cookies = new Cookies();
+
+function HandleViewApartment(e) {
+	const apartmentLink = e.target.getAttribute("data-apartment");
+	cookies.set("book-apartment", apartmentLink, { path: "/" });
+	window.location.href = "/apartment/" + apartmentLink;
+}
 
 function Search() {
 	const runCallback = (cb) => {
@@ -27,7 +37,6 @@ function Search() {
 						} catch (error) {
 							console.log("apartments json parse error");
 						}
-						//
 						row.push(
 							<div className="">
 								<h1 className="text-lg font-semibold text-gray-600">{apartments.length} results found</h1>
@@ -72,7 +81,7 @@ function Search() {
 										<div className="grid m-auto">
 											<h1 className="text-3xl text-center font-semibold text-gray-700">{apartment.price},- Kč</h1>
 											<p className="text-sm text-center text-gray-500 font-semibold">PER MONTH</p>
-											<button type="button" className="mt-2 mx-auto bg-yellow-500 py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-white hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500" data-apartment={apartment.link}>
+											<button type="button" onClick={HandleViewApartment} data-apartment={apartment.link} className="mt-2 mx-auto bg-yellow-500 py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-white hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500" data-apartment={apartment.link}>
 												View details
 											</button>
 										</div>
