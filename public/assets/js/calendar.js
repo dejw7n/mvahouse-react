@@ -24,6 +24,10 @@ function showCalendar(fCalendar) {
 function hideCalendar(fCalendar) {
 	fCalendar.style.display = "none";
 }
+function hideAllCalendars() {
+	hideCalendar(checkin_calendar);
+	hideCalendar(checkout_calendar);
+}
 document.addEventListener("click", function (evt) {
 	targetElement = evt.target; // clicked element
 
@@ -135,12 +139,18 @@ function selectDate(func_date) {
 		for (let index = 0; index < dates.length; index++) {
 			if (dates[index].classList.contains("calendar__date--disabled") == false) {
 				if (dates[index].getAttribute("data-ref") != null && dates[index].getAttribute("data-date") != null) {
-					if (input1 < Date.parse(dates[index].getAttribute("data-date")) && Date.parse(dates[index].getAttribute("data-date")) < input2) dates[index].classList.add("calendar__date--in-range");
+					if (input1 < Date.parse(dates[index].getAttribute("data-date")) && Date.parse(dates[index].getAttribute("data-date")) < input2) {
+						dates[index].classList.add("calendar__date--in-range");
+					}
 				}
 			}
 		}
 	}
-	func_date.classList.add("calendar__date--selected");
+	let selectedDates = document.querySelectorAll('.calendar__date[data-date="' + selected_date + '"');
+	for (let i = 0; i < selectedDates.length; i++) {
+		selectedDates[i].classList.add("calendar__date--selected");
+	}
+	hideAllCalendars();
 }
 function makeCalendar(mode) {
 	for (var i = 0; i < date_inputs.length; i++) {

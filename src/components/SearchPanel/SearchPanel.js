@@ -1,13 +1,13 @@
 import React from "react";
 import "./SearchPanel.css";
-import DateCalendar from "../DateCalendar/DateCalendar";
+import BookingCalendar from "../BookingCalendar/BookingCalendar";
 
 function SearchPanel() {
 	return (
 		<div className="py-4 px-4 bg-white md:px-8">
 			<form action="/search" method="get" className="max-w-4xl mx-auto lg:max-w-5xl">
 				<div className="md:flex mb-1 bg-white">
-					<div className="flex py-4 md:py-0 md:w-2/5 min-w-[150px]">
+					<div className="flex py-4 md:py-0 min-w-[150px]">
 						<div className="w-full m-auto">
 							<div className="font-medium">Check-in</div>
 							<div>
@@ -18,7 +18,7 @@ function SearchPanel() {
 									</div>
 									<input type="hidden" name="checkin" id="calendar-checkin-input" value=""></input>
 									<div className="calendar-checkin" style={{ display: "none" }}>
-										<DateCalendar />
+										<BookingCalendar />
 									</div>
 								</div>
 							</div>
@@ -36,7 +36,7 @@ function SearchPanel() {
 									</div>
 									<input type="hidden" name="checkout" id="calendar-checkout-input" value=""></input>
 									<div className="calendar-checkout" style={{ display: "none" }}>
-										<DateCalendar />
+										<BookingCalendar />
 									</div>
 								</div>
 							</div>

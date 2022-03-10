@@ -1,7 +1,7 @@
 import React from "react";
-import "./DateCalendar.css";
+import "./BookingCalendar.css";
 
-function DateCalendar() {
+function BookingCalendar() {
 	const runCallback = (cb) => {
 		return cb();
 	};
@@ -13,6 +13,7 @@ function DateCalendar() {
 						let dateToday = null;
 						let iteratedMonthDate = null;
 						let month = null;
+						let monthString = null;
 						let monthNumeric = null;
 						let year = null;
 						const row = [];
@@ -26,11 +27,12 @@ function DateCalendar() {
 										iteratedMonthDate = dateToday;
 										iteratedMonthDate.setMonth(iteratedMonthDate.getMonth() + i);
 										month = iteratedMonthDate.getMonth() + 1;
+										monthString = iteratedMonthDate.toLocaleString("default", { month: "long" });
 										monthNumeric = iteratedMonthDate.getMonth() + 1;
 										year = iteratedMonthDate.getFullYear();
 									})()}
 									<div className="text-center my-2 text-base font-bold">
-										{month} {year}
+										{monthString} {year}
 									</div>
 									<table className="w-full table-fixed border-spacing-0">
 										<thead className="calendar__row">
@@ -125,4 +127,4 @@ function DateCalendar() {
 	);
 }
 
-export default DateCalendar;
+export default BookingCalendar;

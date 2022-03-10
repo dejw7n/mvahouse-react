@@ -3,6 +3,7 @@
 	width: 600px;
 	height: 350px;
 	position: absolute;
+	margin-top: 25px;
 	z-index: 999;
 	border-radius: 5px;
 	border-width: 1px;
