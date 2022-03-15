@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import "./assets/css/videojs.css";
+import Helmet from "react-helmet";
 
 import useScript from "./components/UseScript/UseScript";
 import Header from "./components/Header/Header";
@@ -22,10 +23,17 @@ const UseScripts = (props) => {
 };
 
 function App() {
-	UseScripts();
+	//UseScripts();
 	return (
 		<BrowserRouter>
 			<div className="App">
+				<Helmet>
+					<script src="/assets/js/header.js" type="text/javascript" />
+					<script src="/assets/js/calendar.js" type="text/javascript" />
+					<script src="/assets/js/lazyLoad.js" type="text/javascript" />
+					<script src="/assets/js/gallery.js" type="text/javascript" />
+					<script src="https://vjs.zencdn.net/7.17.0/video.min.js" type="text/javascript" />
+				</Helmet>
 				<Header />
 				<Routes>
 					<Route path="/" element={<Home />}></Route>
