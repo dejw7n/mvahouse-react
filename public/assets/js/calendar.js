@@ -5,8 +5,8 @@ let checkin = document.querySelectorAll("#searchbox__checkin")[0];
 let checkin_input = document.querySelectorAll("#calendar-checkin-input")[0];
 let checkout = document.querySelectorAll("#searchbox__checkout")[0];
 let checkout_input = document.querySelectorAll("#calendar-checkout-input")[0];
-let checkin_calendar = document.querySelectorAll("#searchbox__checkin .calendar-checkin")[0];
-let checkout_calendar = document.querySelectorAll("#searchbox__checkout .calendar-checkout")[0];
+let checkin_calendar = document.querySelectorAll("#searchbox__checkin #calendar-checkin")[0];
+let checkout_calendar = document.querySelectorAll("#searchbox__checkout #calendar-checkout")[0];
 
 //get cookie
 const getCookieValue = (name) => document.cookie.match("(^|;)\\s*" + name + "\\s*=\\s*([^;]+)")?.pop() || "";

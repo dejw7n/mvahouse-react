@@ -7,8 +7,8 @@ function BookingCalendar() {
 	};
 	return (
 		<div className="calendar" style={{ display: "block" }}>
-			<div className="calendar__main">
-				<div className="block h-96 overflow-y-scroll sm:flex sm:h-auto sm:overflow-y-auto">
+			<div className="calendar__main grid">
+				<div className="block mx-auto overflow-y-scroll sm:flex sm:h-auto sm:overflow-y-auto">
 					{runCallback(() => {
 						let dateToday = null;
 						let iteratedMonthDate = null;
@@ -19,7 +19,7 @@ function BookingCalendar() {
 						const row = [];
 						for (var i = 0; i < 2; i++) {
 							row.push(
-								<div className="w-60 h-64 mx-auto">
+								<div className="w-80 px-8 py-6 m-auto sm:m-0">
 									{(() => {
 										dateToday = new Date();
 										dateToday.setHours(0, 0, 0, 0);
@@ -31,8 +31,13 @@ function BookingCalendar() {
 										monthNumeric = iteratedMonthDate.getMonth() + 1;
 										year = iteratedMonthDate.getFullYear();
 									})()}
-									<div className="text-center my-2 text-base font-bold">
-										{monthString} {year}
+									<div className="flex">
+										<div className="mt-auto">
+											<span className="text-center text-2xl font-semibold">{monthString.toUpperCase()}</span>
+										</div>
+										<div className="ml-auto mt-auto">
+											<span className="text-center text-lg font-bold">{year}</span>
+										</div>
 									</div>
 									<table className="w-full table-fixed border-spacing-0">
 										<thead className="calendar__row">
