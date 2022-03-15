@@ -56,9 +56,9 @@ function Search() {
 							row.push(
 								<div className="flex h-52 mt-4 bg-white border-2 border-gray-200">
 									<div className="w-80">
-										<img className="w-full h-full" src={apartmentImg} alt="Loading..."></img>
+										<img className="w-full h-full object-cover" src={apartmentImg} alt="Loading..."></img>
 									</div>
-									<div className="block border-l-2 border-r-2 border-gray-200">
+									<div className="hidden sm:block border-l-2 border-r-2 border-gray-200">
 										<div className="grid w-28 h-1/2">
 											<div className="m-auto">
 												<h1 className="text-4xl text-center font-semibold text-blue-400">0</h1>
@@ -73,11 +73,11 @@ function Search() {
 										</div>
 									</div>
 									<div className="p-4">
-										<h1 className="text-2xl font-semibold text-gray-700">Two-Bedroom Apartment</h1>
-										<p className="text-sm text-gray-400">Vrchlického 1240/23, Teplice 41501</p>
-										<p className="mt-2 text-base">This modern apartment comfortably sleeps 5 people and is located on the 2nd floor.</p>
+										<h1 className="text-base font-semibold text-gray-700 md:text-2xl">Two-Bedroom Apartment</h1>
+										<p className="text-xs text-gray-400 md:text-sm">Vrchlického 1240/23, Teplice 41501</p>
+										<p className="hidden mt-2 text-sm sm:block md:text-base">This modern apartment comfortably sleeps 5 people and is located on the 2nd floor.</p>
 									</div>
-									<div className="grid min-w-[200px] tear-paper-left">
+									<div className="grid min-w-[125px] sm:min-w-[200px] tear-paper-left">
 										<div className="grid m-auto">
 											<h1 className="text-3xl text-center font-semibold text-gray-700">{apartment.price},- Kč</h1>
 											<p className="text-sm text-center text-gray-500 font-semibold">PER MONTH</p>
