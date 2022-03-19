@@ -125,7 +125,7 @@ class ApartmentGallery extends Component {
 						</div>
 					</div>
 					<div className="flex h-full">
-						<img src="" alt="" id="gallery-display-img" className="w-max m-auto object-scale-down"></img>
+						<img src="" alt="" id="gallery-display-img" className="w-max h-full m-auto object-scale-down"></img>
 					</div>
 					<div id="gallery-display__right">
 						<div id="gallery-display__right__nextBtn" className="grid right-0">
