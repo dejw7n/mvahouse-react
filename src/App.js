@@ -32,6 +32,7 @@ function App() {
 					<script src="/assets/js/calendar.js" type="text/javascript" />
 					<script src="/assets/js/lazyLoad.js" type="text/javascript" />
 					<script src="/assets/js/gallery.js" type="text/javascript" />
+					<script src="/assets/js/bookApartment.js" type="text/javascript" />
 					<script src="https://vjs.zencdn.net/7.17.0/video.min.js" type="text/javascript" />
 				</Helmet>
 				<Header />

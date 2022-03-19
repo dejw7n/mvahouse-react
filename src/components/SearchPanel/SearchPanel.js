@@ -4,6 +4,8 @@ import BookingCalendar from "../BookingCalendar/BookingCalendar";
 
 function SearchPanel() {
 	//TODO: Přidat možnost odebrat padding
+	//TODO: Přidat možnost odebrat additionals
+	//TODO: Přidat možnost zobrazení verze pro objednání
 	return (
 		<div className="py-4 px-4 bg-white md:px-8">
 			<div className="max-w-4xl mx-auto lg:max-w-5xl">
