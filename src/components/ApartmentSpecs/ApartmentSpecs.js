@@ -41,10 +41,10 @@ export default function Example() {
 					</dl>
 				</div>
 				<div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
-					<img src="https://www.kindpng.com/picc/m/230-2302154_shower-bathroom-door-wall-glass-shower-door-hd.png" alt="Shower" className="bg-gray-100 rounded-lg" />
-					<img src="https://i.pinimg.com/originals/8d/07/6a/8d076abc7115d478208d6ac5bac540b5.jpg" alt="Kitchen" className="bg-gray-100 rounded-lg" />
-					<img src="https://images.unsplash.com/photo-1578898887932-dce23a595ad4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJlZHxlbnwwfHwwfHw%3D&w=1000&q=80" alt="" className="bg-gray-100 rounded-lg" />
-					<img src="https://media.istockphoto.com/photos/luxury-modern-sink-picture-id513303832?k=20&m=513303832&s=612x612&w=0&h=dGrcvB9GBOTD5I0JBlrTjMM_ddlbqSY7IY8SJgd_x88=" alt="" className="bg-gray-100 rounded-lg" />
+					<img src={require(`../../assets/img/apartments/apartment-21/2.jpg`).default} alt="Shower" className="bg-gray-100 rounded-lg" />
+					<img src={require(`../../assets/img/apartments/apartment-21/5.jpg`).default} alt="Kitchen" className="bg-gray-100 rounded-lg" />
+					<img src={require(`../../assets/img/no-image.jpg`).default} alt="" className="bg-gray-100 rounded-lg" />
+					<img src={require(`../../assets/img/no-image.jpg`).default} alt="" className="bg-gray-100 rounded-lg" />
 				</div>
 			</div>
 		</div>

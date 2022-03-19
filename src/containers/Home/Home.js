@@ -9,25 +9,25 @@ import Intro from "../../components/Intro/Intro";
 function Home() {
 	const callouts = [
 		{
-			name: "Botanická zahrada",
-			description: "400m",
-			imageSrc: "https://www.kudyznudy.cz/files/d1/d1bb6357-688e-4720-8c5e-b0270a686cf1.jpg?v=20210714072230",
+			name: "Botanická zahrada v Teplicích",
+			description: "900m (12 minutes walk)",
+			imageSrc: require("../../assets/img/botanickazahrada.jpg").default,
 			imageAlt: "",
-			href: "#",
+			href: "https://www.google.com/maps/dir/Vrchlick%C3%A9ho+1240%2F23,+415+01+Teplice,+%C4%8Cesko/Botanick%C3%A1+zahrada+Teplice,+J.+Suka+1388,+415+01+Teplice/@50.6405208,13.8381077,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x47098ef38eb14071:0xdfa261de85e8705d!2m2!1d13.8368537!2d50.6425077!1m5!1m1!1s0x47098ef038fe861d:0x6fa9608f9ac34544!2m2!1d13.8421708!2d50.6385271!3e2",
 		},
 		{
-			name: "St. Clari",
-			description: "950m",
-			imageSrc: "https://www.kudyznudy.cz/files/d1/d1bb6357-688e-4720-8c5e-b0270a686cf1.jpg?v=20210714072230",
+			name: "Thermalium Lázně Teplice",
+			description: "1,1km (14 minutes walk)",
+			imageSrc: require("../../assets/img/thermalium.jpg").default,
 			imageAlt: "",
-			href: "#",
+			href: "https://www.google.com/maps/dir/Vrchlick%C3%A9ho+1240%2F23,+415+01+Teplice,+%C4%8Cesko/Beethoven+Spa,+L%C3%A1ze%C5%88sk%C3%BD+sad,+Teplice/@50.6408281,13.8302107,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x47098ef38eb14071:0xdfa261de85e8705d!2m2!1d13.8368537!2d50.6425077!1m5!1m1!1s0x47098e8d5f5525b7:0xc0936d10dfab8258!2m2!1d13.8279841!2d50.6387798!3e2",
 		},
 		{
-			name: "Doubravská Hora",
-			description: "1,7km",
-			imageSrc: "https://www.kudyznudy.cz/files/d1/d1bb6357-688e-4720-8c5e-b0270a686cf1.jpg?v=20210714072230",
+			name: "Salesiova výšina",
+			description: "15,6km (22 minutes by car)",
+			imageSrc: require("../../assets/img/salesiova.jpg").default,
 			imageAlt: "",
-			href: "#",
+			href: "https://www.google.com/maps/dir/Vrchlick%C3%A9ho+1240%2F23,+415+01+Teplice,+%C4%8Cesko/Salesiova+v%C3%BD%C5%A1ina,+Osek/@50.6296818,13.7175429,13z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x47098ef38eb14071:0xdfa261de85e8705d!2m2!1d13.8368537!2d50.6425077!1m5!1m1!1s0x47098b52e84bfc37:0x6e9a23727d4d97b!2m2!1d13.673656!2d50.616759!3e0",
 		},
 	];
 	return (
@@ -46,17 +46,17 @@ function Home() {
 						</div>
 						<div className="mt-6 md:w-3/6 md:mt-0 md:pl-3">
 							<div className="relative h-52 pb-3">
-								<span className="absolute bottom-6 left-3 text-gray-200">Large bedroom</span>
-								<img className="w-full h-full object-cover rounded-lg" src={require("../../assets/img/mvahouse/front.jpg").default} alt="" />
+								<span className="absolute bottom-6 left-3 text-gray-200">Double bedroom</span>
+								<img className="w-full h-full object-cover rounded-lg" src={require("../../assets/img/apartments/apartment-21/2.jpg").default} alt="" />
 							</div>
 							<div className="flex h-40 pt-3">
 								<div className="relative w-1/2 pr-3">
-									<span className="absolute bottom-3 left-3 text-gray-200">Large bedroom</span>
-									<img className="w-full h-full object-cover rounded-lg" src={require("../../assets/img/mvahouse/front.jpg").default} alt="" />
+									<span className="absolute bottom-3 left-3 text-gray-200">Bathroom</span>
+									<img className="w-full h-full object-cover rounded-lg" src={require("../../assets/img/apartments/apartment-21/5.jpg").default} alt="" />
 								</div>
 								<div className="relative w-1/2 pl-3">
-									<span className="absolute bottom-3 left-6 text-gray-200">Large bedroom</span>
-									<img className="w-full h-full object-cover rounded-lg" src={require("../../assets/img/mvahouse/front.jpg").default} alt="" />
+									<span className="absolute bottom-3 left-6 text-gray-200">Living room</span>
+									<img className="w-full h-full object-cover rounded-lg" src={require("../../assets/img/apartments/apartment-15/1.jpg").default} alt="" />
 								</div>
 							</div>
 						</div>
@@ -69,7 +69,7 @@ function Home() {
 						<div className="md:width-1/2 grid content-around mr-6">
 							<div className="">
 								<h1 className="mt-1 text-lg font-semibold text-black md:text-2xl">Local attractions</h1>
-								<p class="mt-4 text-sm leading-6 lg:mt-6">Locations that are worth visiting in Teplice...</p>
+								<p class="mt-4 text-sm leading-6 lg:mt-6">Locations that are worth visiting in Czech Republic...</p>
 							</div>
 						</div>
 						<div className="mt-6 grid grid-cols-3 gap-x-6">
@@ -79,7 +79,7 @@ function Home() {
 										<img src={callout.imageSrc} alt={callout.imageAlt} className="w-full h-full object-center object-cover" />
 									</div>
 									<h3 className="mt-6 text-sm text-gray-500">
-										<a href={callout.href}>
+										<a href={callout.href} target="_blank">
 											<span className="absolute inset-0" />
 											{callout.name}
 										</a>
@@ -111,9 +111,9 @@ function Home() {
 							<p class="text-sm leading-4 font-medium text-white sm:text-gray-500 dark:sm:text-gray-400">Entire house</p>
 						</div>
 						<div class="grid gap-4 col-start-1 col-end-3 row-start-1 sm:mb-6 sm:grid-cols-4 lg:gap-6 lg:col-start-2 lg:row-end-6 lg:row-span-6 lg:mb-0">
-							<img src={houseFrontImg} alt="" class="w-full h-60 object-cover rounded-lg sm:h-52 sm:col-span-2 lg:col-span-full" loading="lazy"></img>
-							<img src={houseFrontImg} alt="" class="hidden w-full h-52 object-cover rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2 lg:h-32" loading="lazy"></img>
-							<img src={houseFrontImg} alt="" class="hidden w-full h-52 object-cover rounded-lg md:block lg:row-start-2 lg:col-span-2 lg:h-32" loading="lazy"></img>
+							<img src={require("../../assets/img/mvahouse/front.jpg").default} alt="" class="w-full h-60 object-cover rounded-lg sm:h-52 sm:col-span-2 lg:col-span-full" loading="lazy"></img>
+							<img src={require("../../assets/img/mvahouse/header.jpg").default} alt="" class="hidden w-full h-52 object-cover rounded-lg sm:block sm:col-span-2 md:col-span-1 lg:row-start-2 lg:col-span-2 lg:h-32" loading="lazy"></img>
+							<img src={require("../../assets/img/mvahouse/front.jpg").default} alt="" class="hidden w-full h-52 object-cover rounded-lg md:block lg:row-start-2 lg:col-span-2 lg:h-32" loading="lazy"></img>
 						</div>
 						<dl class="mt-4 text-xs font-medium flex items-center row-start-2 sm:mt-1 sm:row-start-3 md:mt-2.5 lg:row-start-2">
 							<dd class="text-indigo-600 flex items-center dark:text-indigo-400">
