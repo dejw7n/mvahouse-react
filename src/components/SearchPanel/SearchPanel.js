@@ -11,7 +11,7 @@ function SearchPanel() {
 			<div className="max-w-4xl mx-auto lg:max-w-5xl">
 				<div className="block sm:flex">
 					<div className="block h-full sm:flex">
-						<div id="searchbox__checkin" className="flex w-full h-full my-4 px-2 py-2 shadow-xl bg-white sm:w-44 sm:shadow-none sm:px-4 sm:py-0">
+						<div id="searchbox__checkin" className="flex w-full h-full my-4 pr-2 py-2 shadow-xl bg-white sm:w-44 sm:shadow-none sm:pr-4 sm:py-0">
 							<div className="h-full mr-2">
 								<div className="icon-calendar"></div>
 							</div>
@@ -27,7 +27,7 @@ function SearchPanel() {
 								<BookingCalendar />
 							</div>
 						</div>
-						<div id="searchbox__checkout" className="flex w-full h-full my-4 px-2 py-2 shadow-xl bg-white sm:w-44 sm:shadow-none sm:px-4 sm:py-0">
+						<div id="searchbox__checkout" className="flex w-full h-full my-4 pr-2 py-2 shadow-xl bg-white sm:w-44 sm:shadow-none sm:pr-4 sm:py-0">
 							<div className="h-full mr-2">
 								<div className="icon-calendar"></div>
 							</div>
@@ -43,19 +43,10 @@ function SearchPanel() {
 								<BookingCalendar />
 							</div>
 						</div>
-						<div className="flex w-full h-full my-4 px-2 py-2 shadow-xl bg-white sm:w-44 sm:shadow-none sm:px-4 sm:py-0">
-							<div className="h-full mr-2">
-								<div className="icon-calendar"></div>
-							</div>
-							<div className="h-full">
-								<p className="text-lg font-bold leading-6">Additionals</p>
-								<p className="text-xs leading-none">Add date</p>
-							</div>
-						</div>
 					</div>
 					<div className="flex w-full h-12 my-auto ml-auto sm:w-12">
 						<div className="w-full h-full">
-							<a href="/search" className="grid w-full h-full rounded-full bg-blue-600">
+							<a href="/search#results" className="grid w-full h-full rounded-full bg-blue-600">
 								<div class="m-auto icon-search"></div>
 							</a>
 						</div>

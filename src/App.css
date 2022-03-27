@@ -14,36 +14,3 @@
 		50% 50% no-repeat;
 	background-size: 100%;
 }
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-
-.input-number-increment input:focus {
-	outline: none !important;
-}
-
-.input-number-increment button:focus {
-	outline: none !important;
-}
-
-.bookingSummary {
-	position: relative;
-	background: #2c3e50;
-}
-
-.bookingSummary::after {
-	content: "";
-	position: absolute;
-	right: 0;
-	left: -0%;
-	top: 100%;
-	z-index: 10;
-	display: block;
-	height: 20px;
-	background-size: 20px 100%;
-	background-image: linear-gradient(135deg, #2c3e50 25%, transparent 25%), linear-gradient(225deg, #2c3e50 25%, transparent 25%);
-	background-position: 10px 0;
-}

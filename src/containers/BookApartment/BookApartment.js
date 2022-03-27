@@ -1,211 +1,280 @@
-import React, {useEffect} from 'react';
-import './BookApartment.css';
-import Cookies from 'universal-cookie';
-import { GetApartment } from '../../components/ApartmentManager/ApartmentManager';
-
-function datediff(first, second) {
-    // Take the difference between the dates and divide by milliseconds per day.
-    // Round to nearest whole number to deal with DST.
-    return Math.round((second-first)/(1000*60*60*24));
-}
+import React from "react";
+import "./BookApartment.css";
 
 function BookApartment() {
-    const cookies = new Cookies();
-    let apartment = null;
-    let checkin = null;
-    let checkout = null;
-    let days = null;
-    useEffect(() => {
-        try {
-            apartment = GetApartment(cookies.get('book-apartment'));
-            let checkinDate = new Date(cookies.get('book-checkin'));
-            let checkoutDate = new Date(cookies.get('book-checkout'));
-            checkin = cookies.get('book-checkin');
-            checkout = cookies.get('book-checkout');
-            days = datediff(checkinDate, checkoutDate);
-        } catch (error) {
-            window.location.replace('/');
-        }
-        if (apartment === undefined) {
-            window.location.replace('/');
-        }
-    }, []);
-    return (
-        <div id="main-content">
-            <div id="content">
-                <div id="content-wrapper">
-                    <div id="booking__details">
-                        <div id="booking__details-content">
-                            <section className="card">
-                                <div className="card-content">
-                                    <div className="card__title">
-                                        <p>Your booking details</p>
-                                    </div>
-                                    <div className="card__dates">
-                                        <div className="date-item">
-                                            <div className="date-title">
-                                                <p>Check-in</p>
-                                            </div>
-                                            <div className="date">
-                                                <div className="title">{checkin}</div>
-                                                <div className="subtitle"><span className="data_subtitle">3:00 PM -
-                                                    12:00 AM</span></div>
-                                            </div>
-                                        </div>
-                                        <div className="date-item">
-                                            <div className="date-title">
-                                                <p>Check-out</p>
-                                            </div>
-                                            <div className="date">
-                                                <div className="title">{checkout}</div>
-                                                <div className="subtitle"><span className="data_subtitle">3:00 PM -
-                                                    12:00 AM</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="date-length">
-                                        <p className="date-length__title">Total length of stay</p>
-                                        <p className="date-length__subtitle">{days} nights</p>
-                                    </div>
-                                </div>
-                            </section>
-                            <section className="card">
-                                <div className="card-content">
-                                    <div className="card__title">
-                                        <p>Your price summary</p>
-                                    </div>
-                                    <div className="card__price-details">
-                                        <div className="price-details__charge-line">
-                                            <div className="price-details__charge-type">Apartment</div>
-                                            <div className="price-details__charge-value">{apartment.price * days}
-                                                Kč</div>
-                                        </div>
-                                        <div className="price-details__charge-line">
-                                            <div className="price-details__charge-type">10% VAT</div>
-                                            <div className="price-details__charge-value">308 Kč</div>
-                                        </div>
-                                        <div className="price-details__charge-line">
-                                            <div className="price-details__charge-type">Cleaning fee</div>
-                                            <div className="price-details__charge-value">1300 Kč</div>
-                                        </div>
-                                        <div className="price-details__charge-line">
-                                            <div className="price-details__charge-type">City tax</div>
-                                            <div className="price-details__charge-value">249 Kč</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="price-details__total">
-                                    <div className="price-details__total-content">
-                                        <div className="price-details__charge-type">
-                                            <div className="price-details__charge-name">
-                                                <p>Price</p>
-                                            </div>
-                                            <div className="price-details__charge-description">
-                                                <p>(your currency)</p>
-                                            </div>
-                                        </div>
-                                        <div className="price-details__charge-value">
-                                            <span>{apartment.price * days + 308 + 1300 + 249} Kč *</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                    <div id="booking">
-                        <div id="booking-wrapper">
-                            <form action="/posts/bookApartment.php" method="post">
-                                <div className="form">
-                                    <div className="form__title">
-                                        <p>Enter your details</p>
-                                    </div>
-                                    <div className="form__wrapper">
-                                        <label for="fname">First Name</label>
-                                        <input type="text" id="fname" name="fname" required></input>
-                                        <label for="lname">Last Name</label>
-                                        <input type="text" id="lname" name="lname" required></input>
-                                        <div className="form__flex">
-                                            <div className="form__flex__inside">
-                                                <label for="email">E-mail</label>
-                                                <input type="text" id="email" name="email" required></input>
-                                            </div>
-                                            <div className="form__flex__inside">
-                                                <label for="phone">Tell</label>
-                                                <input type="text" id="phone" name="phone" required></input>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="form">
-                                    <div className="form__title">
-                                        <p>Special Requests</p>
-                                    </div>
-                                    <div className="form__wrapper">
-                                        <input name="parking_please" id="parking_please" type="checkbox" className="form__input-checkbox" value="1"></input>
-                                        <label for="parking_please">I'd like private parking on site</label>
-                                    </div>
-                                </div>
-                                <div className="form">
-                                    <div className="form__title">
-                                        <p>Your arrival time</p>
-                                    </div>
-                                    <div className="form__wrapper">
-                                        <label for="fname">Add your estimated arrival time</label>
-                                        <div className="form__input-select_disabled">
-                                            <select name="checkin_timeOfArrival" id="checkin_timeOfArrival"
-                                                className="form__input-select">
-                                                <option value disabled selected>Please select</option>
-                                                <option value="-1">I don't know</option>
-                                                <option value="12">12:00 PM – 1:00 PM </option>
-                                                <option value="13">1:00 PM – 2:00 PM </option>
-                                                <option value="14">2:00 PM – 3:00 PM </option>
-                                                <option value="15">3:00 PM – 4:00 PM </option>
-                                                <option value="16">4:00 PM – 5:00 PM </option>
-                                                <option value="17">5:00 PM – 6:00 PM </option>
-                                                <option value="18">6:00 PM – 7:00 PM </option>
-                                                <option value="19">7:00 PM – 8:00 PM </option>
-                                                <option value="20">8:00 PM – 9:00 PM </option>
-                                                <option value="21">9:00 PM – 10:00 PM </option>
-                                                <option value="22">10:00 PM – 11:00 PM </option>
-                                                <option value="23">11:00 PM – 12:00 AM </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="form">
-                                    <div className="form__title">
-                                        <p>Review House Rules</p>
-                                    </div>
-                                    <div className="form__wrapper">
-                                        <p>Your host would like you to agree to the following house rules:</p>
-                                        <ul>
-                                            <li>No smoking</li>
-                                            <li>No parties/events</li>
-                                            <li>Quiet hours are between 10:00 PM and 9:00 AM</li>
-                                        </ul>
-                                        <p>Quiet hours are between 10:00 PM and 9:00 AM</p>
-                                    </div>
-                                </div>
-                                <div className="form">
-                                    <div className="form__title">
-                                        <p>Payment method</p>
-                                    </div>
-                                    <div className="form__wrapper">
-                                        <p>Not availaible</p>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="apartment" value={apartment.link}></input>
-                                <input type="hidden" name="checkin" value={checkin}></input>
-                                <input type="hidden" name="checkout" value={checkout}></input>
-                                <button type="submit" className="form__submit">Complete the reservation</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+	return (
+		<main id="main-content" className="bg-white">
+			<section className="block py-6 px-4 sm:w-2/3 sm:p-6 md:py-2 md:px-8 sm:hidden bookingSummary">
+				<div className="py-2 border-b-2 border-white">
+					<h1 className="text-xl text-white">Booking Summary</h1>
+				</div>
+				<div className="pt-2">
+					<div className="flex mt-4">
+						<div className="w-1/2">
+							<h1 className="text-gray-200 font-bold">Arrive</h1>
+							<h1 className="text-white font-bold">13. února 2022</h1>
+							<h1 className="text-gray-200">15:00 - 24:00</h1>
+						</div>
+						<div className="w-1/2">
+							<h1 className="text-gray-200 font-bold">Departure</h1>
+							<h1 className="text-white font-bold">24. února 2022</h1>
+							<h1 className="text-gray-200">15:00 - 21:00</h1>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div className="flex">
+				<section className="w-full py-6 px-4 sm:w-2/3 sm:p-6 md:py-2 md:px-8">
+					<div className="max-w-4xl mx-auto lg:max-w-5xl">
+						<div className="grid grid-cols-3 w-full h-12">
+							<div className="flex h-full border-b-4 border-blue-500">
+								<span className="m-auto text-lg font-semibold">Customer Info</span>
+							</div>
+							<div className="flex h-full border-b-2 border-gray-300">
+								<span className="m-auto text-lg font-semibold">Payment Method</span>
+							</div>
+							<div className="flex h-full border-b-2 border-gray-300">
+								<span className="m-auto text-lg font-semibold">Confirmation</span>
+							</div>
+						</div>
+						<div className="hidden">
+							{/*customer info*/}
+							<div className="flex mt-8 mb-4">
+								<div className="grid w-6 h-6 mr-2 rounded-full bg-black">
+									<span className="m-auto leading-none text-base text-bold text-white">1</span>
+								</div>
+								<h1 className="my-auto text-xl font-medium leading-none">Contact Info</h1>
+							</div>
+							<div className="border-2 border-gray-200">
+								<div className="mx-6 my-4">
+									<div class="grid grid-cols-6 gap-6">
+										<div className="col-span-6 sm:col-span-3">
+											<label class="block text-gray-700 text-sm font-normal mb-2" for="username">
+												First name
+											</label>
+											<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="firstName" v-model="form.email" type="text" required autofocus placeholder="First name" />
+										</div>
+										<div className="col-span-6 sm:col-span-3">
+											<label class="block text-gray-700 text-sm font-normal mb-2" for="username">
+												First name
+											</label>
+											<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="firstName" v-model="form.email" type="text" required autofocus placeholder="First name" />
+										</div>
+										<div className="col-span-6 sm:col-span-3">
+											<label class="block text-gray-700 text-sm font-normal mb-2" for="username">
+												Phone
+											</label>
+											<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="phone" v-model="form.email" type="text" required autofocus placeholder="Phone number" />
+										</div>
+										<div className="col-span-6 sm:col-span-3">
+											<label class="block text-gray-700 text-sm font-normal mb-2" for="username">
+												Email address
+											</label>
+											<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="email" v-model="form.email" type="email" required autofocus placeholder="Email address" />
+										</div>
+									</div>
+								</div>
+							</div>
 
-    )
+							{/*participant info*/}
+							<div className="flex mt-8 mb-4">
+								<div className="grid w-6 h-6 mr-2 rounded-full bg-black">
+									<span className="m-auto leading-none text-base text-bold text-white">2</span>
+								</div>
+								<h1 className="my-auto text-xl font-medium leading-none">Participant Info</h1>
+							</div>
+							<div className="border-2 border-gray-200">
+								<div className="mx-6 my-4">
+									<div class="grid grid-cols-6 gap-6">
+										<div className="col-span-6 sm:col-span-6">
+											<div className="grid grid-rows-2 gap-2">
+												<div className="flex border-2 border-gray-200 bg-gray-100">
+													<div className="p-2">
+														<h1 className="text-lg font-semibold leading-none">$0.00</h1>
+														<h1 className="text-sm leading-none">Per person</h1>
+													</div>
+													<div class="ml-auto w-24">
+														<div class="flex flex-row h-full w-full rounded-lg relative bg-transparent">
+															<button data-action="decrement" class=" bg-gray-200 text-gray-600 hover:text-gray-700 hover:bg-gray-300 h-full w-20 rounded-l cursor-pointer outline-none">
+																<span class="m-auto text-2xl font-thin leading-none">-</span>
+															</button>
+															<input type="number" class="outline-none focus:outline-none text-center w-full bg-gray-200 font-semibold text-md hover:text-black focus:text-black md:text-basecursor-default flex items-center text-gray-700 outline-none" name="input-number-increment" value="0"></input>
+															<button data-action="increment" class="bg-gray-200 text-gray-600 hover:text-gray-700 hover:bg-gray-300 h-full w-20 rounded-r cursor-pointer">
+																<span class="m-auto text-2xl font-thin leading-none">+</span>
+															</button>
+														</div>
+													</div>
+												</div>
+												<div className="flex border-2 border-gray-200 bg-gray-100">
+													<div className="p-2">
+														<h1 className="text-lg font-semibold leading-none">$0.00</h1>
+														<h1 className="text-sm leading-none">Per adult</h1>
+													</div>
+													<div class="ml-auto w-24">
+														<div class="flex flex-row h-full w-full rounded-lg relative bg-transparent">
+															<button data-action="decrement" class=" bg-gray-200 text-gray-600 hover:text-gray-700 hover:bg-gray-300 h-full w-20 rounded-l cursor-pointer outline-none">
+																<span class="m-auto text-2xl font-thin leading-none">-</span>
+															</button>
+															<input type="number" class="outline-none focus:outline-none text-center w-full bg-gray-200 font-semibold text-md hover:text-black focus:text-black md:text-basecursor-default flex items-center text-gray-700 outline-none" name="input-number-increment" value="0"></input>
+															<button data-action="increment" class="bg-gray-200 text-gray-600 hover:text-gray-700 hover:bg-gray-300 h-full w-20 rounded-r cursor-pointer">
+																<span class="m-auto text-2xl font-thin leading-none">+</span>
+															</button>
+														</div>
+													</div>
+												</div>
+												<div className="flex border-2 border-gray-200 bg-gray-100">
+													<div className="p-2">
+														<h1 className="text-lg font-semibold leading-none">$0.00</h1>
+														<h1 className="text-sm leading-none">Per animal</h1>
+													</div>
+													<div class="ml-auto w-24">
+														<div class="flex flex-row h-full w-full rounded-lg relative bg-transparent">
+															<button data-action="decrement" class=" bg-gray-200 text-gray-600 hover:text-gray-700 hover:bg-gray-300 h-full w-20 rounded-l cursor-pointer outline-none">
+																<span class="m-auto text-2xl font-thin leading-none">-</span>
+															</button>
+															<input type="number" class="outline-none focus:outline-none text-center w-full bg-gray-200 font-semibold text-md hover:text-black focus:text-black md:text-basecursor-default flex items-center text-gray-700 outline-none" name="input-number-increment" value="0"></input>
+															<button data-action="increment" class="bg-gray-200 text-gray-600 hover:text-gray-700 hover:bg-gray-300 h-full w-20 rounded-r cursor-pointer">
+																<span class="m-auto text-2xl font-thin leading-none">+</span>
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div className="col-span-6 sm:col-span-6">
+											<label class="block text-gray-700 text-lg font-semibold mb-2" for="username">
+												Notes
+											</label>
+											<textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="email" v-model="form.email" type="email" required autofocus placeholder="You can write a message to our." />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div className="">
+							{/*customer info*/}
+							<div className="flex mt-8 mb-4">
+								<div className="grid w-6 h-6 mr-2 rounded-full bg-black">
+									<span className="m-auto leading-none text-base text-bold text-white">3</span>
+								</div>
+								<h1 className="my-auto text-xl font-medium leading-none">Payment Method</h1>
+							</div>
+							<div className="grid grid-rows-2 gap-2">
+								<div className="relative border-2 border-gray-200">
+									<div className="px-8 flex">
+										<input type="radio" name="radio" id="payment-method1" className="z-10 w-4 h-4 mt-5" />
+										<div className="z-0 absolute left-0 w-full h-full bg-gray-100"></div>
+										<label for="payment-method1" className="z-10 w-full">
+											<div className="w-full">
+												<div className="px-6 py-4">
+													<div className="mb-2">
+														<h1 className="text-xl font-semibold leading-none">Credit Card</h1>
+													</div>
+													<div className="">
+														<p className="leading-none">Safe money transfer using your bank account. Visa, Maestro, etc...</p>
+													</div>
+												</div>
+											</div>
+										</label>
+									</div>
+								</div>
+								<div className="relative border-2 border-gray-200">
+									<div className="px-8 flex">
+										<input type="radio" name="radio" id="payment-method2" className="z-10 w-4 h-4 mt-5" />
+										<div className="z-0 absolute left-0 w-full h-full bg-gray-100"></div>
+										<label for="payment-method2" className="z-10 w-full">
+											<div className="w-full">
+												<div className="px-6 py-4">
+													<div className="mb-2">
+														<h1 className="text-xl font-semibold leading-none">PayPal</h1>
+													</div>
+													<div className="">
+														<p className="leading-none">Safe payment online, Credit card needed. PayPal account is not necessary</p>
+													</div>
+												</div>
+											</div>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section className="hidden w-1/3 sm:grid bookingSummary">
+					<div className="my-auto px-8">
+						{/*<div className="py-4 border-b-2 border-white">
+							<h1 className="text-xl text-white">Booking Summary</h1>
+						</div>*/}
+						<div className="mt-4 h-52">
+							<img className="w-full h-full object-cover rounded-lg" src={require("../../assets/img/apartments/apartment-21/2.jpg").default} alt="" />
+						</div>
+						<div className="mt-4">
+							<h1 className="text-lg font-semibold text-white">2-Bedroom Apartment with Balcony</h1>
+						</div>
+						<div className="flex mt-4">
+							<div className="w-1/2">
+								<h1 className="text-gray-200 font-bold">Arrive</h1>
+								<h1 className="text-white font-bold">13. února 2022</h1>
+								<h1 className="text-gray-200">15:00 - 24:00</h1>
+							</div>
+							<div className="w-1/2">
+								<h1 className="text-gray-200 font-bold">Departure</h1>
+								<h1 className="text-white font-bold">24. února 2022</h1>
+								<h1 className="text-gray-200">15:00 - 21:00</h1>
+							</div>
+						</div>
+						<div className="mt-4">
+							<h1 className="text-gray-200 font-bold">Lenght of stay:</h1>
+							<h1 className="text-white font-bold">8 days</h1>
+						</div>
+						<div className="mt-4">
+							<div className="border-t-2 border-dashed"></div>
+						</div>
+						<div className="mt-4">
+							<div className="flex w-full">
+								<div className="">
+									<h1 className="text-white">Subtotal:</h1>
+								</div>
+								<div className="ml-auto">
+									<h1 className="font-semibold text-white">$ 220.00</h1>
+								</div>
+							</div>
+							<div className="flex w-full">
+								<div className="">
+									<h1 className="text-white">Discount:</h1>
+								</div>
+								<div className="ml-auto">
+									<h1 className="font-semibold text-white">$ 0.00</h1>
+								</div>
+							</div>
+							<div className="flex w-full">
+								<div className="">
+									<h1 className="text-white">Taxes&Fees:</h1>
+								</div>
+								<div className="ml-auto">
+									<h1 className="font-semibold text-white">$ 0.00</h1>
+								</div>
+							</div>
+						</div>
+						<div className="mt-4">
+							<div className="border-t-2 border-solid"></div>
+						</div>
+						<div className="mt-4">
+							<div className="ml-auto">
+								<span className="mr-2 text-lg text-white">Total:</span>
+								<span className="text-2xl font-semibold text-white">$ 220.00</span>
+							</div>
+						</div>
+						<div className="my-4">
+							<button type="submit" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+								Next
+							</button>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+	);
 }
 
 export default BookApartment;

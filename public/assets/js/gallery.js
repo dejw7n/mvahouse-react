@@ -24,7 +24,7 @@ window.addEventListener(
 				nextImg = items.length - 1;
 			}
 			if (nextImg > items.length - 1) {
-				nextImg = 0;
+				nextImg = 1;
 			}
 			galleryDisplayImg.src = itemsImg[nextImg].src;
 			galleryDisplay.setAttribute("gallery-img", nextImg);
