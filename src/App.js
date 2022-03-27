@@ -33,7 +33,9 @@ function App() {
 					<script src="/assets/js/lazyLoad.js" type="text/javascript" />
 					<script src="/assets/js/gallery.js" type="text/javascript" />
 					<script src="/assets/js/bookApartment.js" type="text/javascript" />
+					<script src="/assets/js/Admin/Graph.js" type="text/javascript" />
 					<script src="https://vjs.zencdn.net/7.17.0/video.min.js" type="text/javascript" />
+					<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 				</Helmet>
 				<Header />
 				<Routes>
@@ -41,7 +43,7 @@ function App() {
 					<Route path="/search" element={<Search />}></Route>
 					<Route path="/apartment/:apartment" element={<Apartment />}></Route>
 					<Route path="/bookApartment/" element={<BookApartment />}></Route>
-					<Route path="/Admin/" element={<AdminDashboard />}></Route>
+					<Route path="/admin/dashboard" element={<AdminDashboard />}></Route>
 				</Routes>
 				<Footer />
 			</div>
