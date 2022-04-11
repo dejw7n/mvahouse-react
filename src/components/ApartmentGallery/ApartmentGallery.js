@@ -113,12 +113,12 @@ class ApartmentGallery extends Component {
 				</div>
 				<div id="gallery-display" className="flex w-full h-full fixed top-0 right-0 bg-black" style={{ display: "none" }}>
 					<div id="gallery-display__left">
-						<div id="gallery-display__left__closeBtn" className="grid absolute w-16 h-16 p-4 top-0 right-0 text-right">
+						<div id="gallery-display__left__closeBtn" className="grid absolute w-16 h-16 p-4 top-0 right-0 text-white text-right">
 							<svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full m-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
 							</svg>
 						</div>
-						<div id="gallery-display__left__previousBtn" className="grid absolute w-16 h-16 p-4 top-">
+						<div id="gallery-display__left__previousBtn" className="grid absolute w-16 h-16 p-4 top-0 text-white">
 							<svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full m-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
 							</svg>
@@ -128,7 +128,7 @@ class ApartmentGallery extends Component {
 						<img src="" alt="" id="gallery-display-img" className="w-max h-full m-auto object-scale-down"></img>
 					</div>
 					<div id="gallery-display__right">
-						<div id="gallery-display__right__nextBtn" className="grid right-0">
+						<div id="gallery-display__right__nextBtn" className="grid right-0 text-white">
 							<svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full m-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
 							</svg>
