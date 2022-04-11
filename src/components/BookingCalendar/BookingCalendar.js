@@ -26,7 +26,7 @@ function BookingCalendar() {
 
 										iteratedMonthDate = dateToday;
 										iteratedMonthDate.setMonth(iteratedMonthDate.getMonth() + i);
-										month = iteratedMonthDate.getMonth() + 1;
+										month = iteratedMonthDate.getMonth();
 										monthString = iteratedMonthDate.toLocaleString("default", { month: "long" });
 										monthNumeric = iteratedMonthDate.getMonth() + 1;
 										year = iteratedMonthDate.getFullYear();

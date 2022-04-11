@@ -46,10 +46,10 @@ window.addEventListener(
 				targetElement = targetElement.parentNode;
 			} while (targetElement);
 
-			if (checkout_calendar.style.display == "none") {
-				checkout_calendar.innerHTML = checkin_calendar.innerHTML;
-				hideCalendar(checkin_calendar);
-			}
+			//if (checkout_calendar.style.display == "none") {
+			//	checkout_calendar.innerHTML = checkin_calendar.innerHTML;
+			//	hideCalendar(checkin_calendar);
+			//}
 		});
 		document.addEventListener("click", function (evt) {
 			targetElement = evt.target; // clicked element
@@ -66,10 +66,10 @@ window.addEventListener(
 				targetElement = targetElement.parentNode;
 			} while (targetElement);
 
-			if (checkin_calendar.style.display == "none") {
-				checkin_calendar.innerHTML = checkout_calendar.innerHTML;
-				hideCalendar(checkout_calendar);
-			}
+			//if (checkin_calendar.style.display == "none") {
+			//	checkin_calendar.innerHTML = checkout_calendar.innerHTML;
+			//	hideCalendar(checkout_calendar);
+			//}
 		});
 
 		//select date
@@ -181,7 +181,7 @@ window.addEventListener(
 				let url_checkin_element = document.querySelectorAll("td[data-date='" + url_checkin + "']")[0];
 				selectDate(url_checkin_element);
 			}
-		} catch (error) {}
+		} catch (error) { }
 		try {
 			var url_checkout = getCookieValue("book-checkout");
 			if (url_checkout !== "undefined") {
@@ -190,7 +190,7 @@ window.addEventListener(
 				let url_checkout_element = document.querySelectorAll("td[data-date='" + url_checkout + "']")[0];
 				selectDate(url_checkout_element);
 			}
-		} catch (error) {}
+		} catch (error) { }
 	},
 	false
 );
