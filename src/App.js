@@ -28,10 +28,12 @@ function App() {
 		<BrowserRouter>
 			<div className="App">
 				<Helmet>
+					<script src="/assets/js/animation.js" type="text/javascript" />
 					<script src="/assets/js/header.js" type="text/javascript" />
 					<script src="/assets/js/calendar.js" type="text/javascript" />
 					<script src="/assets/js/lazyLoad.js" type="text/javascript" />
 					<script src="/assets/js/gallery.js" type="text/javascript" />
+					<script src="/assets/js/incrementButton.js" type="text/javascript" />
 					<script src="/assets/js/bookApartment.js" type="text/javascript" />
 					<script src="/assets/js/Admin/Graph.js" type="text/javascript" />
 					<script src="https://vjs.zencdn.net/7.17.0/video.min.js" type="text/javascript" />
